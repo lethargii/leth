@@ -1,0 +1,158 @@
+# Fichier de configuration du site à personnaliser
+### Configuration minimale
+site_name: NSI-Classeur # Nom du site <70 caractères, apparait dans l'onglet du navigateur
+site_url: https://luciensw.github.io/NSI-Classeur/ # Adresse web principale de publication du site, à modifier au format https://votre-pseudo-github.github.io/nom-depot/
+
+### Configuration de métadonnées
+# Métadonnées de description <300 caratères, et d'auteur pour toutes les pages du site 
+site_description: Dépôt pour mes notebooks de NSI
+site_author: "Lucien SEVAULT WOLBER"
+
+### Configuration du dépôt
+# Ajoute en haut à droite de chaque page du site, icône, nom et lien vers le dépot GitHub du projet.
+repo_url: https://github.com/Luciensw/NSI-Classeur
+repo_name: 'NSI-Classeur' # Personnalise le nom générique "GitHub" donné par défaut au lien vers le dépot GitHub du projet.
+edit_uri: edit/main/docs/ # Complément au chemin pour aller depuis `repo_url:` jusqu'au répertoire `docs` ;
+# Ce qui permet avec MkDocs-Material d'ajouter un bouton (crayon) d'édition du code source.md d'une page du site depuis le navigateur
+# (edit => édition avec connexion | blob, tree => lecture anonyme)
+
+
+### Configuration manuelle de la stucture de navigation
+# Dossier source, chemin relatif au fichier mkdocs.yml
+docs_dir: docs
+# Structure du menu principal de navigation, chemins relatifs au dossier docs_dir
+# nav: 
+#   - La page d'accueil : index.md
+#   # Référencer vos autres pages ci-dessus...
+
+# Configuration du thème https://squidfunk.github.io/mkdocs-material/creating-your-site/#configuration
+theme:
+    name: 'material'
+    custom_dir: overrides #  
+    font: false  # RGPD ; pas de fonte Google
+    language: fr # français
+    # logo:  # image qui apparait dans l'en tête à gauche du titre de la page
+    # et qui est support du lien qui renvoie à la racine du site depuis toutes les pages
+    favicon: images/orichalcum.png # LogoIO-Obsidian.png
+    icon:
+      logo: fontawesome/solid/code # icone qui apparait dans l'en tête à gauche du titre de la page
+      # et qui est support du lien qui renvoie à la racine du site depuis toutes les pages
+      repo: fontawesome/brands/github-alt # modifie l'icône du lien vers le dépot du projet de l'en tête
+    
+    # Palettes de couleurs jour/nuit, cf : https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+    palette: 
+      - scheme: default # nom du thème clair
+        primary: indigo # couleur primaire des titres, des liens, ..., à prendre dans la liste ou à personaliser dans extra.css
+        accent: deep orange # couleur d'accentuation au survol des boutons, desliens, ..., à prendre dans la liste
+        toggle: # définition du bouton pour switcher de palette
+          icon: material/weather-sunny # apparence
+          name: Basculer en mode sombre # message
+      - scheme: slate # nom du thème sombre
+        primary: deep orange # couleur primaire des titres, des liens, ..., à prendre dans la liste ou à personaliser dans extra.css
+        accent: indigo
+        toggle:
+          icon: material/weather-night
+          name: Basculer en mode clair
+
+    # Configuration du comportement de la navigation, cf : https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+    features: 
+        - navigation.instant # active XHR https://fr.wikipedia.org/wiki/XMLHttpRequest # imcompatible avec 
+        - navigation.tabs # Menu de navigation horizontal sous l'en-tête sauf sur appareil mobile
+        # - navigation.tabs.sticky # Menu de navigation horizontal collant
+        - navigation.top # bouton pour remonter tout en haut de la page
+        - toc.integrate # Table Of Content, table des matières intégrée dans la barre verticale de navigation
+        - header.autohide # masquage automatique de l'en tête du site lorsque l'on descend dans la page
+        # - navigation.indexes # incompatible avec toc.integrate https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages 
+        # - navigation.expand # la barre latérale gauche développe toutes les sous-sections
+        - search.suggest #  affiche l'achèvement le plus probable pour le dernier mot qui peut être accepté avec la touche -> 
+        - search.highlight # met en surbrillance toutes les occurrences après avoir suivi le lien.
+        - search.share # un clique sur le bouton de partage, copie l'URL automatiquement dans le presse-papiers.
+
+
+### Configuration des extensions MarkDown :   
+markdown_extensions: # https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
+  # extensions de la bibliothèque markdown standard
+  - meta                          # Métadonnées
+  - def_list                      # Listes de définition.
+  - attr_list                     # Sélecteurs CSS et attributs HTML personnalisés
+  - footnotes                     # Notes[^1] de bas de page.  [^1]: ma note.
+  - admonition                    # Pour permettre les admonitions de MkDocs # Boite d'avertissements  !!! info "ma remarque"
+  - toc:                          # Configuration de la table des matières générée automatiquement à partir des titres du niveau 2
+        permalink: "&lozf;"          # Ajoute un symbole lien hypertexte vers l'ancre du titre #le-titre 
+        toc_depth: 4                # Limite de la profondeur d'inclusion des titres dans la table des matières
+  - nl2br                         # Ajoute un retour à la ligne <br> après un saut de ligne simple # A activer pour admonition et si l'option "Sauts de ligne stricts" n'est pas activée dans les réglages de l'éditeur d'Obsidian
+  - mdx_breakless_lists           # Permet de commencer une liste sans faire de saut de ligne en amont en ajoutant systématiquement un saut de ligne
+  - sane_lists                    # Produit le même affichage de liste qu'Obsidian démarage au nombre indiqué au début d'une liste ordonné : https://python-markdown.github.io/extensions/sane_lists/ 
+  - smarty                        # The SmartyPants extension converts ASCII dashes, quotes and ellipses to their HTML entity equivalents https://python-markdown.github.io/extensions/smarty/
+  - tables                        # Pour les tableaux https://squidfunk.github.io/mkdocs-material/reference/data-tables/
+  # extensions de python-markdown https://facelessuser.github.io/pymdown-extensions/
+  - pymdownx.details              # plier/déplier les avertissements - admonition collapsable
+  - pymdownx.caret                # texte ^^souligné^^ ou en ^exposant^.
+  - pymdownx.mark                 # texte ==surligné==.
+  - pymdownx.tilde                # texte ~~barré~~ ou en ~indice~.
+  - pymdownx.critic               # Pour du marquage et commentaires de révision de texte
+  - pymdownx.magiclink            # Reconnait automatiquement un lien, une adresse à partir de son URL et bien plus : https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
+  - pymdownx.highlight            # Coloration syntaxique du code
+  - pymdownx.inlinehilite         # pour  `#!python  <python en ligne>`
+  - pymdownx.tasklist:            # Cases à cocher  - [ ]  et - [x]
+        custom_checkbox:    true    #   avec cases d'origine
+        clickable_checkbox: true    #   et cliquables.
+  - pymdownx.superfences:    # Imbrication de blocs. # pour admonitions MkDocs
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.keys:                # Touches du clavier.  ++ctrl+d++
+        separator: "\uff0b"
+  - pymdownx.emoji:               # Émojis  :boom:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.arithmatex:          # Formules en LaTeX 
+        generic: true
+        smart_dollar: false  
+  
+  
+
+plugins:
+  - search
+  - mkdocs-jupyter: # Convertir les fichiers .ipynb et .py en pages du site https://github.com/danielfrg/mkdocs-jupyter
+      include_source: True # Inclu une copie du fichier source.ipynb (ou .py) dans le dossier de la page sur le site pour son téléchargement
+  - roamlinks 
+  - mermaid2
+  - callouts # Pour la conversion des callouts d'Obsidian en admonitions de MkDocs https://pypi.org/project/mkdocs-callouts/
+  - git-revision-date-localized
+  
+  
+   
+### Configuration d'une licence
+# Information de droit d'auteur qui s'affiche dans le pied de page pour toutes les pages du site
+copyright: >
+    Document partagé par <a href="https://github.com/Luciensw/" target="_blank">Lucien SEVAULT WOLBER</a>
+    &copy; 2022 sous licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" target="_blank">CC BY-NC-SA 4.0</a>
+
+### Configuration de liens sociaux https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#social-links 
+extra:
+  social: # A personaliser...
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:lucien.sevault-wolber@eleves.ecmorlaix.fr
+      name: Pour toute question, suggestion ou commentaire, écrire à l'auteur
+    - icon: fontawesome/brands/github
+      link: https://github.com/Luciensw/
+      name: Compte GitHub
+    - icon: fontawesome/solid/school
+      link: https://www.ecmorlaix.fr/nos-etablissements/lycee-notre-dame-du-mur/
+      name: Lycée Notre Dame du Mur 
+
+  
+
+
+# Configuration de javascripts complémentaires
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+  
+# Configuration de css complémentaires
+extra_css:
+  - stylesheets/extra.css
