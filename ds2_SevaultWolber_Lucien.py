@@ -82,7 +82,7 @@ def creation_tours_poo(n):
     la première correspond à la pile des n disques,
     les autres étant vides.'''
     tour = Pile()
-    mettre_disques(tour, n)
+    mettre_disques_poo(tour, n)
     tours = [tour,[],[]]
     return tours
 
@@ -103,5 +103,5 @@ def creation_tours_poo_1(n):
     p0 = Pile()
     p1 = Pile()
     p2 = Pile()
-    mettre_disques(p0, n)
+    mettre_disques_poo(p0, n)
     return [p0, p1, p2]
