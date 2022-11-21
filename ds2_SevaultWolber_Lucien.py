@@ -5,7 +5,7 @@ def creer_pile():
 
 def est_vide(pile):
     '''Renvoie un booléen, True si la pile est vide et False sinon'''
-    return p == []
+    return pile == []
 
 def empiler(pile, element):
     '''Empile element au sommet de pile'''
