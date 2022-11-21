@@ -49,7 +49,7 @@ def sommet(pile):
     empiler(pile,sommet)
     return sommet
 
-def sommet(pile):
+def sommet_poo(pile):
     
     ''' Renvoie la valeur au sommet de la pile mais sans la supprimer de la pile '''
     if pile.est_vide():
@@ -63,7 +63,7 @@ def mettre_disques(pile, n):
     for disque in range(n):
         empiler(pile,n-disque)
 
-def mettre_disques(pile, n):
+def mettre_disques_poo(pile, n):
     '''met des disques de taille n à 1 sur la pile'''
     for disque in range(n):
         pile.empiler(n-disque)
@@ -77,7 +77,7 @@ def creation_tours(n):
     tours = [tour,[],[]]
     return tours
 
-def creation_tours(n):
+def creation_tours_poo(n):
     ''' renvoie une liste de 3 piles,
     la première correspond à la pile des n disques,
     les autres étant vides.'''
@@ -85,3 +85,23 @@ def creation_tours(n):
     mettre_disques(tour, n)
     tours = [tour,[],[]]
     return tours
+
+def creation_tours_1(n):
+    ''' renvoie une liste de 3 piles,
+    la première correspond à la pile des n disques,
+    les autres étant vides.'''
+    p0 = creer_pile()
+    p1 = creer_pile()
+    p2 = creer_pile()
+    mettre_disques(p0, n)
+    return [p0, p1, p2]
+
+def creation_tours_poo_1(n):
+    ''' renvoie une liste de 3 piles,
+    la première correspond à la pile des n disques,
+    les autres étant vides.'''
+    p0 = Pile()
+    p1 = Pile()
+    p2 = Pile()
+    mettre_disques(p0, n)
+    return [p0, p1, p2]
