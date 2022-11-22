@@ -105,3 +105,45 @@ def creation_tours_poo_1(n):
     p2 = Pile()
     mettre_disques_poo(p0, n)
     return [p0, p1, p2]
+
+def deplacer(tours, origine, cible):
+    '''
+    déplace la valeur au sommet de la pile d’indice origine vers le sommet de la pile d’indice cible.
+    Si le déplacement n’est pas possible, parce qu’il ne respecte pas les règles du jeu, les piles ne sont pas modifiées.
+    '''
+    if not est_vide(tours[origine]):
+        if est_vide(tours[cible]) or (sommet(tours[origine]) < sommet(tours[cible])):
+            empiler(tours[cible],sommet(tours[origine]))
+            depiler(tours[origine])
+
+def deplacer_poo(tours, origine, cible):
+    '''
+    déplace la valeur au sommet de la pile d’indice origine vers le sommet de la pile d’indice cible.
+    Si le déplacement n’est pas possible, parce qu’il ne respecte pas les règles du jeu, les piles ne sont pas modifiées.
+    '''
+    if not tours[origine].est_vide():
+        if tours[cible].est_vide() or (sommet_poo(tours[origine]) < sommet_poo(tours[cible])):
+            tours[cible].empiler(sommet_poo(tours[origine]))
+            tours[origine].depiler()
+
+def resoudre(tours, n, origine, cible, interm):
+    if n==1:
+        deplacer(tours, origine, cible)
+    else:
+        resoudre(tours, n-1, origine, interm, cible)
+        deplacer(tours, origine, cible)
+        resoudre(tours, n-1, interm, cible, origine)
+
+def resoudre_poo(tours, n, origine, cible, interm):
+    if n==1:
+        deplacer_poo(tours, origine, cible)
+    else:
+        resoudre_poo(tours, n-1, origine, interm, cible)
+        deplacer_poo(tours, origine, cible)
+        resoudre_poo(tours, n-1, interm, cible, origine)
+
+def nb_etapes(n):
+    if n==1:
+        return 1
+    else:
+        return 2*nb_etapes(n-1) + 1
