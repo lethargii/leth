@@ -147,3 +147,121 @@ def nb_etapes(n):
         return 1
     else:
         return 2*nb_etapes(n-1) + 1
+
+def pile_vers_tableau(pile, n):
+    '''
+    
+    '''
+    tableau = [0]*n
+    tmp = creer_pile()
+    i = 0
+    while not est_vide(pile):
+        empiler(tmp,depiler(pile))
+    while not est_vide(tmp):
+        valeur = depiler(tmp)
+        tableau[i] = valeur
+        empiler(pile, valeur)
+        i += 1
+    return tableau
+
+def pile_vers_tableau_poo(pile, n):
+    '''
+    
+    '''
+    tableau = [0]*n
+    tmp = Pile()
+    i = 0
+    while not pile.est_vide():
+        tmp.empiler(pile.depiler())
+    while not tmp.est_vide():
+        valeur = tmp.depiler()
+        tableau[i] = valeur
+        pile.empiler(valeur)
+        i += 1
+    return tableau
+
+def tours_vers_matrice(tours, n) :
+    matrice = []
+    for tour in tours:
+        matrice.append(pile_vers_tableau(tour, n))
+    return matrice
+
+def tours_vers_matrice_poo(tours, n) :
+    matrice = []
+    for tour in tours:
+        matrice.append(pile_vers_tableau_poo(tour, n))
+    return matrice
+
+def affichage_matrice(matrice, n):
+    for i in range(n):
+        for liste in matrice:
+            if liste[n-i-1] == 0:
+                caractere = "|"
+            else:
+                caractere = liste[n-i-1]
+            print(" " , caractere, end = "", sep = "")
+        print()
+
+def affichage_tours(tours, n) :
+    matrice = tours_vers_matrice(tours, n)
+    affichage_matrice(matrice, n)
+    print(7*"=")
+
+def resoudre(tours, n_disques, n, origine, cible, interm):
+    if n==1:
+        deplacer(tours, origine, cible)
+        affichage_tours(tours, n_disques)
+    else:
+        resoudre(tours, n_disques, n-1, origine, interm, cible)
+        deplacer(tours, origine, cible)
+        affichage_tours(tours, n_disques)
+        resoudre(tours, n_disques, n-1, interm, cible, origine)
+
+def affichage_complexe(tours, n):
+    matrice = tours_vers_matrice(tours,n)
+    for i in range(n):
+        for liste in matrice:
+            if liste[n-i-1] == 0:
+                caractere = "|"
+            else:
+                caractere = (liste[n-i-1]*2+1)*"="
+            print(" "*(n-liste[n-i-1]) , caractere, " "*(n-liste[n-i-1]), end = "", sep = "")
+        print()
+    print(3*(2*n+1)*"_")
+
+def resoudre(tours, n_disques, n, origine, cible, interm):
+    if n==1:
+        deplacer(tours, origine, cible)
+        affichage_complexe(tours, n_disques)
+    else:
+        resoudre(tours, n_disques, n-1, origine, interm, cible)
+        deplacer(tours, origine, cible)
+        affichage_complexe(tours, n_disques)
+        resoudre(tours, n_disques, n-1, interm, cible, origine)
+
+from ipycanvas import Canvas
+def affichage_canvas(tours, n) :
+    matrice = tours_vers_matrice(tours,n)
+    hanoi = Canvas(width = 30*(n*2+1), height = 50*n)
+    hanoi.line_width = 10
+    hanoi.fill_style = "red"
+    for i in range(3):
+        hanoi.fill_rect(((1+2*i)*hanoi.width/6)-5, 0, 10, hanoi.height)
+    hanoi.fill_style = "black"
+    for i in range(n):
+        for j in range(3):
+            if matrice[j][i] != 0:
+                hauteur = 40
+                largeur = 10*(matrice[j][i]*2)
+                hanoi.fill_rect((j*2+1)*hanoi.width/6 - largeur/2, hanoi.height - i*50 - hauteur, largeur, hauteur)
+    display(hanoi)
+
+def resoudre(tours, n_disques, n, origine, cible, interm):
+    if n==1:
+        deplacer(tours, origine, cible)
+        affichage_canvas(tours, n_disques)
+    else:
+        resoudre(tours, n_disques, n-1, origine, interm, cible)
+        deplacer(tours, origine, cible)
+        affichage_canvas(tours, n_disques)
+        resoudre(tours, n_disques, n-1, interm, cible, origine)
