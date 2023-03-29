@@ -1,7 +1,7 @@
 # Fichier de configuration du site à personnaliser
 ### Configuration minimale
-site_name: NSI-Classeur # Nom du site <70 caractères, apparait dans l'onglet du navigateur
-site_url: https://luciensw.github.io/NSI-Classeur/ # Adresse web principale de publication du site, à modifier au format https://votre-pseudo-github.github.io/nom-depot/
+site_name: lethargii # Nom du site <70 caractères, apparait dans l'onglet du navigateur
+site_url: https://lethargii.github.io/leth/ # Adresse web principale de publication du site, à modifier au format https://votre-pseudo-github.github.io/nom-depot/
 
 ### Configuration de métadonnées
 # Métadonnées de description <300 caratères, et d'auteur pour toutes les pages du site 
