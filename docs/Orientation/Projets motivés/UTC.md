@@ -2,7 +2,7 @@ Madame, Monsieur,
 
 J'ai pour projet de devenir développeur informatique et plus particulièrement développeur de jeux vidéo. En effet, depuis mon plus jeune âge, je suis attiré par l'informatique et la scène vidéoludique. Mon projet est donc issu de l'union de mes 2 passions. D'où mon choix de prendre les spécialités mathématiques et NSi en terminale.
 
-De nature curieuse, je suis attiré par beaucoup d'autres activités que les sciences. Notamment le sport (karaté, multisport, tir à l'arc, gouren, escalade, badminton), la musique (guitare basse) et l'électronique. Je suis par ailleurs les cours de la spécialité LLCE.
+De nature curieuse, je suis attiré par beaucoup d'autres activités que les sciences. Cela peut se remarquer par ma participation aux cours de la spécialité LLCE terminale, à l'atelier cinéma et à l'association sportive badminton. Je pratique par ailleurs la guitare basse durant mon temps libre.
 
 (projets électronique / jeu vidéo / site)
 En addition à cela, j'ai beaucoup de projets
