@@ -6,12 +6,12 @@ site_url: https://lethargii.github.io/leth/ # Adresse web principale de publicat
 ### Configuration de métadonnées
 # Métadonnées de description <300 caratères, et d'auteur pour toutes les pages du site 
 site_description: Dépôt pour mes notebooks de NSI
-site_author: "Lucien SEVAULT WOLBER"
+site_author: "Lucien SEVAULT"
 
 ### Configuration du dépôt
 # Ajoute en haut à droite de chaque page du site, icône, nom et lien vers le dépot GitHub du projet.
-repo_url: https://github.com/Luciensw/NSI-Classeur
-repo_name: 'NSI-Classeur' # Personnalise le nom générique "GitHub" donné par défaut au lien vers le dépot GitHub du projet.
+repo_url: https://github.com/lethargii/leth
+repo_name: 'lethargii' # Personnalise le nom générique "GitHub" donné par défaut au lien vers le dépot GitHub du projet.
 edit_uri: edit/main/docs/ # Complément au chemin pour aller depuis `repo_url:` jusqu'au répertoire `docs` ;
 # Ce qui permet avec MkDocs-Material d'ajouter un bouton (crayon) d'édition du code source.md d'une page du site depuis le navigateur
 # (edit => édition avec connexion | blob, tree => lecture anonyme)
@@ -127,17 +127,17 @@ plugins:
 ### Configuration d'une licence
 # Information de droit d'auteur qui s'affiche dans le pied de page pour toutes les pages du site
 copyright: >
-    Document partagé par <a href="https://github.com/Luciensw/" target="_blank">Lucien SEVAULT WOLBER</a>
+    Document partagé par <a href="https://github.com/lethargii/" target="_blank">Lucien SEVAULT</a>
     &copy; 2022 sous licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" target="_blank">CC BY-NC-SA 4.0</a>
 
 ### Configuration de liens sociaux https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#social-links 
 extra:
   social: # A personaliser...
     - icon: fontawesome/solid/paper-plane
-      link: mailto:lucien.sevault-wolber@eleves.ecmorlaix.fr
+      link: mailto:l.sevault@hotmail.com
       name: Pour toute question, suggestion ou commentaire, écrire à l'auteur
     - icon: fontawesome/brands/github
-      link: https://github.com/Luciensw/
+      link: https://github.com/lethargii/
       name: Compte GitHub
     - icon: fontawesome/solid/school
       link: https://www.ecmorlaix.fr/nos-etablissements/lycee-notre-dame-du-mur/
