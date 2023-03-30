@@ -1,17 +1,9 @@
-## Moi :
-- projet de développeur informatique de jeux vidéos -> 
-- RPG Maker
-- Godot Engine - Projet de jeu vidéo
-- Sports (multisport, tir à l'arc, gouren, escalade, badminton)
-- Basse
-- Electronique
-
-## Vous
-- portes ouvertes
-- relations internationales
 - classement de l'école
-- choix des cours
-- associations
-
-## Nous
-- ?
+- fait trop "liste"
+- développeur de jeu vidéo -> bof
+- branche informatique
+- UV que je choisis
+- Regrouper par thématique
+- citer des universités partenaires
+- changer salutations
+- élèves contents dans l'UTC

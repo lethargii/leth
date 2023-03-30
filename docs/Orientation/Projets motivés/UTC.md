@@ -10,7 +10,7 @@ Les UT représentent donc l'opportunité idéale pour mener à bien mon projet t
 
 Lors des portes ouvertes de l'UTC, j’ai pu assister aux conférences de Mesdames Marie-Hélène Abel et Joanna Daaboul ainsi que de Monsieur Antoine Jouglet qui m'ont fait réaliser l'expertise de vos enseignants. 
 
-Votre mobilité à l'international me permettrait d'assouvir mon envie d'ouverture au monde qui me semble nécessaire dans le monde d'aujourd'hui. La découverte d'autres cultures me paraît être quelque chose d'enrichissant et c'est pour cette raison que j'ai déjà réalisé des voyages en Angleterre ou en Irelande.
+Votre mobilité à l'international me permettrait d'assouvir mon envie d'ouverture au monde qui me semble nécessaire dans le monde d'aujourd'hui. La découverte d'autres cultures me paraît être quelque chose d'enrichissant et c'est pour cette raison que j'ai déjà réalisé des voyages en Angleterre ou en Irlande.
 
 La vie étudiante m'a toujours intéressé et c'est pour cela que je fais partie du conseil de vie lycéenne de mon lycée. Je compte bien continuer de m'impliquer en intégrant le BDE ou en créant une association dédiée à la création de jeux vidéo.
 
