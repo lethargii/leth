@@ -9,3 +9,9 @@ Les algériens subissent de nombreuses discriminations :
 - Les Algériens paient 2 impôts (les taxes européennes + impôt arabe). L'impôt arabe finance les investissements coloniaux !
 - La colère gagne les campagnes : avant l'occupation française il n'y avait pas de titre de propriété pour 1 terre = 1 personne. La terre et la récolte appartenait à tous. Les français vont s'accaparer les meilleures terres (sur 7 millions hectares -> 3 millions sont récquisitionnés).
 - L'algérie paiera un lourd tribut lors des WW.
+Après la WW2 l'idée d'une indépendance germe à nouveau.
+En novembre 1945 une série d'attentats et de sabotage fait 8 morts -> c'est la Toussaint Rouge. En représailles, la France mobilise l'armée pour retrouver le calme.
+
+1. La guerre d'Algérie (1945-1962) oppose des forces très déséquilibrées :
+- le FLN qui combat sous forme de guérilla en perpétrant des attentats et des sabotages par le biais de son groupe armée l'ALN
+- l'armée française, bien équipée, nombreux (50000 hommes dont 38% appelés pour 18 mois de service) mais composée pour l'essentiel d'appelés de contingent (jeunes hommes faisant leur service militaire) 1956 -> 400000 hommes) + moyens financiers importants permettant d'édifier la ligne Morice (créé à partir de 1957, ligne de défense du nom du ministre de la défensede l'époque) ou de mener des opérations dans de vastes zones.
