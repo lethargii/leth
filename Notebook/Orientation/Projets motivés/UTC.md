@@ -4,7 +4,7 @@ J'ai pour projet de devenir développeur informatique et, si j'en ai la possibil
 
 Mes centres d'intérêt ne se limitent pas aux sciences : je participe aux cours de la spécialité LLCE terminale, à l'atelier cinéma et à l'association sportive badminton. Je pratique par ailleurs la guitare basse durant mon temps libre. En plus de cela, j'ai développé des projets dont la réalisation d'une enceinte bluetooth ou le développement d'un site web ou d'un jeu vidéo.
 
-Les UT proposent un cadre idéal pour mener à bien mon projet tout en m'adonnant à d'autres passe-temps de par la possibilité de choisir ses UVs. En lien avec mon projet je souhaite donc intégrer la branche génie informatique (filière ingénieurie des systèmes informatiques).
+Les UT proposent un cadre idéal pour mener à bien mon projet sans pour autant me limiter à celui-ci, de par la possibilité de choisir ses UVs. En lien avec mon projet je souhaite donc intégrer la branche génie informatique (filière ingénieurie des systèmes informatiques).
 
 Lors des portes ouvertes de l'UTC, j’ai pu assister aux conférences de Marie-Hélène Abel, Joanna Daaboul et Antoine Jouglet qui m'ont fait réaliser l'expertise de vos enseignants. Par ailleurs, j'ai beaucoup apprécié l'ambiance dégagé durant cet évènement. 
 
