@@ -5,7 +5,7 @@ site_url: https://lethargii.github.io/leth/ # Adresse web principale de publicat
 
 ### Configuration de métadonnées
 # Métadonnées de description <300 caratères, et d'auteur pour toutes les pages du site 
-site_description: Dépôt pour mes notebooks de NSI
+site_description: My site where I'll drop all my notes.
 site_author: "Lucien SEVAULT"
 
 ### Configuration du dépôt
@@ -19,7 +19,7 @@ edit_uri: edit/main/docs/ # Complément au chemin pour aller depuis `repo_url:` 
 
 ### Configuration manuelle de la stucture de navigation
 # Dossier source, chemin relatif au fichier mkdocs.yml
-docs_dir: docs
+docs_dir: Notebook
 # Structure du menu principal de navigation, chemins relatifs au dossier docs_dir
 # nav: 
 #   - La page d'accueil : index.md

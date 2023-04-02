@@ -1,0 +1,9 @@
+- classement de l'école
+- fait trop "liste"
+- développeur de jeu vidéo -> bof
+- branche informatique
+- UV que je choisis
+- Regrouper par thématique
+- citer des universités partenaires
+- changer salutations
+- élèves contents dans l'UTC
