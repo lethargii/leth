@@ -2,6 +2,8 @@ Madame, Monsieur,
 
 Depuis toujours, je suis attiré par l'informatique et la scène vidéoludique. J'ai pour projet de devenir développeur informatique et plus particulièrement de jeux vidéo (union de mes 2 passions). D'où mon choix des mathématiques (spécialité et expertes) et de la NSI en terminale. Mes centres d'intérêt ne se limitent pas aux sciences : je participe aux cours de la spécialité LLCE terminale, à l'atelier cinéma et à l'association sportive badminton ; je pratique la guitare basse et fais de l'électronique. De plus, j'ai développé des projets dont la programmation d'un site web ou d'un jeu vidéo.
 
-La suite logique de mon parcours est de rejoindre la branche génie informatique (filière ISI). Les UT proposent un cadre idéal pour mener à bien mon projet sans me limiter à celui-ci, de par la possibilité de choisir ses UVs. Elève engagé, je fais partie du conseil de vie lycéenne. Je compte bien continuer de m'impliquer en intégrant le BDE ou en créant une association dédiée à la création de jeux vidéo.
+Votre ouverture à l'international me permettra de satisfaire mon envie de découvrir d'autres cultures (expérience toujours enrichissante). J'ai déjà voyagé en Angleterre et en Irlande pour cette raison. La suite logique de mon parcours est de rejoindre la licence mention informatique (le parcours international pourrait être intéressant pour moi). 
+Elève engagé, je fais partie du conseil de vie lycéenne. Je compte bien continuer de m'impliquer en intégrant l'Organisation Brestoise Informatique.
 
 Dans l'optique de vous avoir convaincu de mes compétences.
+Sincèrement.

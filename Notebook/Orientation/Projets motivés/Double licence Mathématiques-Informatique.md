@@ -4,4 +4,4 @@ Depuis toujours, je suis attiré par l'informatique et la scène vidéoludique. 
 
 La suite logique de mon parcours est de rejoindre la branche génie informatique (filière ISI). Les UT proposent un cadre idéal pour mener à bien mon projet sans me limiter à celui-ci, de par la possibilité de choisir ses UVs. Lors des portes ouvertes de l'UTC, j’ai assisté aux conférences de Mmes Abel et Daaboul et M. Jouglet qui ont mis en évidence l'expertise de vos enseignants. J'y ai d'ailleurs beaucoup apprécié l'ambiance. Votre ouverture à l'international me permettra de satisfaire mon envie de découvrir d'autres cultures (expérience toujours enrichissante). J'ai déjà voyagé en Angleterre et en Irlande pour cette raison. Elève engagé, je fais partie du conseil de vie lycéenne. Je compte bien continuer de m'impliquer en intégrant le BDE ou en créant une association dédiée à la création de jeux vidéo.
 
-J'ai pour perspective de vous avoir convaincu de ma motivation.
+Dans l'optique de vous avoir convaincu de mes compétences.
