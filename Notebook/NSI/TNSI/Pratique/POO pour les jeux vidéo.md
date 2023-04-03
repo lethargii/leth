@@ -5,8 +5,13 @@
 
 ### Plan :
 - Définition de la POO et pourquoi elle est adaptée à la programmation de jeux vidéo.
+> La POO s'applique tout particulièrement.
 - Différents algorithmes utilisés dans les jeux vidéo.
 1. Boucle de jeu
+> Tout jeu vidéo consiste en une boucle (while en python). La raison à cela est que l'on veut mettre à jour autant de fois que possible l'affichage du jeu et vérifier en tout instant si le joueur appuie sur une touche.
 2. Déplacements du joueur
+> 
 3. Collisions
+> 
 4. Pathfinding
+> 
