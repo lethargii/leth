@@ -1,3 +1,3 @@
-# NSI-Classeur
+# leth
 
-Mon classeur avec mes notebooks de NSI.
+My repo Github with all my stuff for school and other things.
