@@ -1,0 +1,1 @@
+Lors de ma scolarité, j'ai réalisé deux stages d'observation. Le premier était en 3ème dans le groupe des ressources humaines de BNP Paribas. Le second était en 2nde dans la librairie Dialogues à Morlaix.
