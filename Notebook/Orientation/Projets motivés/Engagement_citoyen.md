@@ -1,0 +1,1 @@
+Depuis le collège, je me présente chaque année au poste de délégué et suis élu suppléant (j'ai déjà participé à un conseil de classe lors de mon année en première). En terminale j'ai intégré le CVL ce qui m'a permis de plus m'impliquer dans la vie lycéenne en organisant des évènements pour animer l'établissement.
