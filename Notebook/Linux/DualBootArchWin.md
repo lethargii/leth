@@ -14,7 +14,7 @@ loadkeys fr-latin1
 ```
 Appuyer sur q pour faire un a en qwerty.
 ## Verifier le mode de boot
-Pour être sûr que vous pouvez bien installer systemd-boot et que vous avez bien démarré dans le bon mode :
+Pour être sûr que vous pouvez bien installer systemd-boot et que vous avez bien démarré en mode UEFI :
 ```bash
 ls /sys/firmware/efi/efivars
 ```
@@ -29,6 +29,8 @@ device list
 ```bash
 station Station scan
 ```
+Remplacer Station par un des appareils listés par la commande précédente.
+S'il est impossible de se connecter au wifi, utiliser cette commpande :
 ```bash
 rfkill unblock wifi
 ```
@@ -38,7 +40,7 @@ station Station get-networks
 ```bash
 station Station connect Network
 ```
-Puis entrer le mot de passe de votre réseau wifi.
+Remplacer Network par le réseau auquel vous voulez vous connecter, puis, entrer le mot de passe de votre réseau wifi.
 ## Mettre à jour l'horloge système
 ```bash
 timedatectl
@@ -55,19 +57,24 @@ fdisk /dev/disque
 ```
 Il faut créer une partition Linux et une partition XBOOTLDR (au format Linux Extended Boot) car la partition EFI de windows n'est pas assez grande.
 ## Formater les partitions
+Formater la partition Linux en ext4 :
 ```bash
 mkfs.ext4 /dev/mountpartition
 ```
+Formater la partition XBOOTLDR en FAT32 :
 ```bash
 mkfs.fat -F 32 /dev/efipartition
 ```
 ## Monter les partitions
+Monter la partition Linux :
 ```bash
 mount /dev/root_partition /mnt
 ```
+Monter la partition EFI de windows :
 ```bash
 mount --mkdir /dev/efi_partition /mnt/efi
 ```
+Monter la partition XBOOTLDR :
 ```bash
 mount --mkdir /dev/boot_partition /mnt/boot
 ```
@@ -76,10 +83,12 @@ mount --mkdir /dev/boot_partition /mnt/boot
 reflector --latest 100 --sort rate --protocol https --country France --age 12 --save /etc/pacman.d/mirrorlist
 ```
 ## Installation de linux
+La commande ci-dessous permet d'installer les paquets essentiels au fonctionnement de Linux.
 ```bash
 pacstrap -K /mnt base linux linux-firmware
 ```
 ### Fstab
+Fstab est le fichier qui indique à votre système au démarrage quels partitions il doit monter.
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
@@ -87,7 +96,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```bash
 arch-chroot /mnt
 ```
+Cette commande permet de se connecter en tant que root (administrateur) à votre nouveau système.
 ## Installation de quelques paquets
+Synchroniser les dépôts :
 ```bash
 pacman -Ssy
 ```
@@ -119,7 +130,7 @@ vim /etc/vconsole.conf
 Write 'KEYMAP=fr-latin1'.
 ### Configuration du réseau
 ```bash
-vim /etc/hostname
+vim /etc/hostnam
 ```
 Write 'myhostname'.
 ### Mot de passe root
@@ -127,6 +138,7 @@ Write 'myhostname'.
 passwd
 ```
 ### Ajouter un utilisateur
+Il est quasiment obligatoire d'ajouter un utilisateur autre que le root au système car se connecter au PC en ayant tous les droits
 ```bash
 useradd -m utilisateur
 ```
@@ -140,6 +152,7 @@ passwd utilisateur
 visudo
 ```
 ## Installer systemd-boot
+bootctl permet d'installer systemd-boot en tant que bootloader. Il est nécessaire de spécifier le chemin de la partition EFI et de la partition XBOOTLDR pour que l'installation se fasse correctement.
 ```bash
 bootctl --esp-path=/efi --boot-path=/boot install
 ```
