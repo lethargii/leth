@@ -56,3 +56,7 @@ May I come in?
 Emily must wear glasses since she was eight.
 Deniz had no money, so she sold her car. A few days later she won a lot of money in a competition. She shouldn't have sold her car.
 The accident happened because he was driving on the wrong side of the road. He should have driven on the right.
+
+Le médecin m'a dit que je devais rester chez moi ce week-end mais mes amis ont besoin de moi pour déménager. Je ne peux pas les laisser tomber. Je dois y aller. Par contre, je pourrais peut-être rentrer plus tôt. Cela me laisserait du temps pour me reposer. J'aurais pu leur dire que je n'étais pas disponible mais ils auraient peut-être été fachés.
+
+The doctor said I should stay home that weekend but my friends need me to move. I can't give up on them. I must go. However, maybe I could get back home sooner. This would give me time to rest. I could have told them that I wasn't free but maybe it would have made them angry.

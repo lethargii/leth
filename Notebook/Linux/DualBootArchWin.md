@@ -130,9 +130,17 @@ vim /etc/vconsole.conf
 Write 'KEYMAP=fr-latin1'.
 ### Configuration du réseau
 ```bash
-vim /etc/hostnam
+vim /etc/hostname
 ```
 Write 'myhostname'.
+```bash
+vim /etc/hosts
+```
+```bash
+127.0.0.1 localhost
+::1 localhost
+127.0.1.1 myarch
+```
 ### Mot de passe root
 ```bash
 passwd
