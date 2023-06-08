@@ -14,12 +14,9 @@ Il faut maintenant utiliser la commande cl-update pour mette à jour le système
 cl-update
 ```
 ```bash
-<<<<<<< HEAD
 emerge -avq nano vim sudo fluxbox lightdm lightdm-gtk-greeter x11-base/xorg
 ```
 ```bash
-visudo
-=======
 merge -avq nano vim sudo fluxbox lightdm lightdm-gtk-greeter x11-base/xorg
 ```
 ```bash
@@ -28,5 +25,4 @@ visudo
 Uncomment wheel.
 ```bash
 rc-update add xdm
->>>>>>> 40e23f73c3fa202b2d14372f194f9599a7064f0f
 ```
