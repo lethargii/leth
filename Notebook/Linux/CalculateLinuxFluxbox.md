@@ -9,7 +9,8 @@ Pour pouvoir continuer l'installation il faut se connecter au wifi. L'utilitaire
 ```bash
 nmcli d wifi connect Station password Password device Device
 ```
-Il faut maintenant utiliser la commande de Calcu```bash
+Il faut maintenant utiliser la commande cl-update pour mette à jour le système.
+```bash
 cl-update
 ```
 ```bash
