@@ -1,12 +1,15 @@
 ```bash
-cl-install -u lethargii:none:wheel,default
+cl-install -u lethargii:all:default,wheel
 ```
 ```bash
-nmcli d wifi connect Station password Password device Device
+nmcli d wifi connect Station password Password
 ```
 ```bash
 cl-update
 ```
 ```bash
-merge -avq nano vim sudo fluxbox lightdm lightdm-gtk-greeter x11-base/xorg
+emerge -avq nano vim sudo fluxbox lightdm lightdm-gtk-greeter x11-base/xorg
+```
+```bash
+visudo
 ```
