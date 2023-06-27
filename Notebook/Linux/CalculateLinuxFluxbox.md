@@ -14,10 +14,7 @@ Il faut maintenant utiliser la commande cl-update pour mette à jour le système
 cl-update
 ```
 ```bash
-emerge -avq nano vim sudo fluxbox lightdm lightdm-gtk-greeter x11-base/xorg
-```
-```bash
-merge -avq nano vim sudo fluxbox lightdm lightdm-gtk-greeter x11-base/xorg
+emerge -avq nano vim sudo fluxbox lightdm gnome-terminal tint2 firefox
 ```
 ```bash
 visudo

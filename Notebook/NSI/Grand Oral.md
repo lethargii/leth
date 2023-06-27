@@ -1,10 +1,10 @@
+Est-il nécessaire d'avoir des compétences en algorithmique pour programmer un jeu vidéo ?
 # Introduction
- Je vais vous parler des algorithmes simples que l’on utilise souvent dans les jeux-vidéo et de comment les implémenter en programmation orientée objet en python. Pour rappel la programmation orientée objet est un paradigme de programmation (c’est à dire une manière de programmer) qui consiste en l’utilisation d’objets qui possèdent leurs propres fonctions et leurs propres attributs (qui sont des variables propres aux objets). La POO est le paradigme de programmation principalement utilisé dans les jeux-vidéo car dans un jeu tout peut s’apparenter à un objet : le joueur, les ennemis, les maisons, les arbres, la barre de vie…   
-
+Aujourd'hui ce sont souvent des équipes composées de centaines de personnes qui conçoivent des jeux vidéo. Mais il y a aussi des développeurs indépendants qui font tout seul leurs propres jeux vidéo et qui sont malgré tout plutôt populaires. On peut tout de même se demander si il faut des compétences en algorithmique pour programmer par soi-même un jeu vidéo. Pour répondre à cette question nous allons imaginer que l'on veut développer un jeu vidéo de type roguelike. Pour commencer il convient de définir ce qu'est l'algorithmique. L'algorithmique est l'étude des procédés et des techniques qui permettent de concevoir un algorithme. Un algorithme étant une procédure permettant de résoudre un problème donné.
 
 Roguelike :
 - Déplacements du joueur
-On va commencer par implémenter quelque chose de très simple : les déplacements du joueur. C’est souvent la première chose que l’on va coder dans un jeu et c’est un algorithme très simple puisqu’il consiste juste à incrémenter ou décrémenter les coordonnées du joueur en fonction de quelle touche est appuyée.
+On va commencer par implémenter quelque chose de très simple : les déplacements du joueur. C’est souvent la première chose que l’on va coder dans un jeu. Une première notion d'algorithmique est nécessaire ici : ce sont les conditions. Si la touche gauche est pressée il faut aller à gauche. Ça reste malgré tout un algorithme très simple puisqu’il consiste juste à incrémenter ou décrémenter les coordonnées du joueur (c'est à dire de les augmenter ou de les diminuer de 1) en fonction de la touche qui est appuyée.
 ```python
 class Joueur():
 	def __init__(self, x, y):
@@ -22,6 +22,8 @@ class Joueur():
 ```
 - Collisions entre objets
 Cela reste une fonctionnalité nécessaire dans beaucoup de jeux vidéo donc elle par exemple présente dans RPG maker.
+- POO
+- 
 ```python
 class Objet():
 	def __init__(self, x, y, w, h):
@@ -33,7 +35,7 @@ class Objet():
 		if collision:
 			return True
 ```
-- « IA » d’un ennemi
+- « IA » d’un ennemi/pathfinding
 
 ```python
 class Ennemi():
@@ -49,4 +51,4 @@ def generation_procedurale():
 ```
 
 # Conclusion
-En conclusion, il est possible de concevoir un jeu sans avoir de réelles connaissances en algorithmique avec certains moteurs de jeu qui ont un certain nombre de fonctionnalités précodées mais on doit se limiter à ces dites fonctionnalités. Il devient alors quasiment obligatoire de programmer que ce soit de manière visuelle ou textuelle.
+En conclusion, il est possible de concevoir un jeu sans avoir de réelles connaissances en algorithmique avec certains moteurs de jeu qui ont un certain nombre de fonctionnalités pré-codées mais on doit se limiter à ces dites fonctionnalités. Pour pouvoir implémenter par soi-même de nouvelles fonctionnalités on peut utiliser des langages de script visuel mais ceux-ci sont considérés comme limités et ne permettent pas de faire tout ce que l'on veut. Pour créer un jeu vidéo complet il est quasiment nécessaire selon moi de comprendre certaines notions d'algorithmique importantes.
