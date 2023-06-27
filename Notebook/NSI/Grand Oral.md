@@ -4,7 +4,8 @@ Aujourd'hui ce sont souvent des équipes composées de centaines de personnes qu
 
 Roguelike :
 - Déplacements du joueur
-On va commencer par implémenter quelque chose de très simple : les déplacements du joueur. C’est souvent la première chose que l’on va coder dans un jeu. Une première notion d'algorithmique est nécessaire ici : ce sont les conditions. Si la touche gauche est pressée il faut aller à gauche. Ça reste malgré tout un algorithme très simple puisqu’il consiste juste à incrémenter ou décrémenter les coordonnées du joueur (c'est à dire de les augmenter ou de les diminuer de 1) en fonction de la touche qui est appuyée.
+On va commencer par implémenter quelque chose de très simple : les déplacements du joueur. C’est souvent la première chose que l’on va coder dans un jeu. Une première notion d'algorithmique est nécessaire ici : ce sont les conditions. Si la touche gauche est pressée il faut aller à gauche. Ça reste malgré tout un algorithme très simple puisqu’il consiste juste à incrémenter ou décrémenter les coordonnées du joueur (c'est à dire de les augmenter ou de les diminuer de 1) en fonction de la touche qui est appuyée. On incrémente x quand la touche droite est pressée et on le décrémente quand la touche gauche est pressée. On incrémente y quand la touche bas est pressée et on le décrémente quand la touche haut est pressée. Il y a cependant un problème avec cet algorithme puisqu’on se mettra à bouger plus vite quand on se déplace en diagonale.
+
 ```python
 class Joueur():
 	def __init__(self, x, y):
