@@ -1,7 +1,4 @@
-- [ ] SVT
-- [ ] Physique
 - [ ] Grand oral
-- [ ] Eval math
-- [ ] Maths expertes devoir
-- [ ] Eval espagnol
-- [ ] Eval anglais
+- [ ] tint2
+- [ ] batterie
+- [ ] sound
