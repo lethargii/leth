@@ -181,7 +181,8 @@ vim /boot/loader/entries/arch.conf
 ```
 ```bash
 title Arch Linux
-linux /vmlinuz-linux.img
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
 options root=PARTUUID=YOUR_PARTUUID
 ```
 ```bash
@@ -190,16 +191,7 @@ pacman -S ucode
 Remplacer ucode par amd-ucode ou intel-ucode.
 # Installer un environnement de bureau
 ```bash
-pacman -S lightdm
-```
-```bash
-pacman -S lightdm-gtk-greeter
-```
-```bash
-pacman -S xorg
-```
-```bash
-pacman -S cinnamon
+pacman -S lightdm lightdm-gtk-greeter xorg cinnamon
 ```
 ```bash
 systemctl enable lightdm.service
@@ -208,10 +200,7 @@ systemctl enable lightdm.service
 systemctl enable NetworkManager.service
 ```
 ```bash
-pacman -S gnome-terminal
-```
-```bash
-pacman -S firefox
+pacman -S gnome-terminal firefox
 ```
 ```bash
 localectl set-x11-keymap fr
@@ -238,4 +227,19 @@ yay -Syu --devel
 yay -Y --devel --save
 yay -S flatpak
 yay -S pamac-all
+```
+```bash
+sudo pacman -S bluez bluez-utils bluez-plugins
+```
+```bash
+modprobe btusb
+```bash
+systemctl enable bluetooth.service
+```
+```bash
+vim /etc/pacman.conf
+```
+```bash
+[multilib]
+Include = /etc/pacman.d/mirrorlist
 ```
