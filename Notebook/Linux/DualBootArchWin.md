@@ -233,6 +233,7 @@ sudo pacman -S bluez bluez-utils bluez-plugins
 ```
 ```bash
 modprobe btusb
+```
 ```bash
 systemctl enable bluetooth.service
 ```
