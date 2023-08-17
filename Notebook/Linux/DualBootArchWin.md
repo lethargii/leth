@@ -109,13 +109,16 @@ arch-chroot /mnt
 ```
 Cette commande permet de se connecter en tant que root (administrateur) à votre nouveau système.
 ## Installation de quelques paquets
+C'est à ce moment que l'on fait la rencontre du gestionnaire de paquets d'Arch : pacman. Pour ceux qui ne savent pas c'est ce qui sert à télécharger des applications en gros. Avant de télécharger un paquet il ne faut pas oublier de synchroniser les dépôts (parce que sinon ben on peut rien télécharger).
 Synchroniser les dépôts :
 ```bash
 pacman -Ssy
 ```
+Installer des paquets :
 ```bash
-pacman -S networkmanager vim sudo terminal
+pacman -S vim sudo
 ```
+On installe vim et sudo. vim est un éditeur de texte qui s'utilise d'une certaine manière (à venir). On aura besoin de vim par la suite. sudo permet en tant qu'utilisateur d'obtenir les droits d'administrateur pour modifier le système.
 ### Time zone
 ```bash
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
@@ -131,23 +134,23 @@ hwclock --systohc
 ```bash
 vim /etc/locale.gen
 ```
-Décomenter 'fr_FR.UTF-8 UTF-8'.
+Décommenter 'fr_FR.UTF-8 UTF-8'.
 ```bash
 locale-gen
 ```
 ```bash
 vim /etc/locale.conf
 ```
-Ecrire 'LANG=fr_FR.UTF-8'.
+Écrire 'LANG=fr_FR.UTF-8'.
 ```bash
 vim /etc/vconsole.conf
 ```
-Ecrire 'KEYMAP=fr-latin1'.
+Écrire 'KEYMAP=fr-latin1'.
 ### Configuration du réseau
 ```bash
 vim /etc/hostname
 ```
-Write 'myhostname'.
+Écrire 'myhostname'.
 ```bash
 vim /etc/hosts
 ```
@@ -161,7 +164,7 @@ vim /etc/hosts
 passwd
 ```
 ### Ajouter un utilisateur
-Il est quasiment obligatoire d'ajouter un utilisateur autre que le root au système car se connecter au PC en ayant tous les droits
+Il est quasiment obligatoire d'ajouter un utilisateur autre que le root au système car se connecter au PC en ayant tous les droits pose des problèmes de sécurité considérables.
 ```bash
 useradd -m utilisateur
 ```
@@ -209,33 +212,58 @@ options root=PARTUUID=YOUR_PARTUUID
 pacman -S ucode
 ```
 Remplacer ucode par amd-ucode ou intel-ucode.
+Il faut aussi installer un driver vidéo pour que la carte graphique puisse fonctionner. (à venir)
 ## Installer un environnement de bureau
-Pour 
+Sur Windows l'environnement de bureau est déjà présent. Arch Linux permet cependant d'en choisir un parmi tous ceux qui existent pour Linux. Pour commencer il faut installer un serveur d'affichage. Le plus utilisé aujourd'hui est xorg (wayland est le serveur d'affichage qui est censé supplanter xorg mais il n'est pas encore tout à fait au point).
+Installer xorg :
 ```bash
 pacman -S xorg
 ```
+Il faut ensuite installer un gestionnaire d'affichage permettant de démarrer un environnement de bureau. Ce n'est pas réellement nécessaire mais démarrer depuis un temrinal est bien moins intuitif que démarrer avec une interface graphique. Des gestionnaires d'affichage il y en a plusieurs. Je conseille LightDM (avec le greeter GTK) ou SDDM (avec le thème breeze).
+LightDM :
 ```bash
 pacman -S lightdm lightdm-gtk-greeter
 ```
 ```bash
-pacman -S sddm
-```
-```bash
-pacman -S cinnamon
-```
-```bash
 systemctl enable lightdm.service
+```
+SDDM :
+```bash
+pacman -S sddm
 ```
 ```bash
 systemctl enable sddm.service
 ```
+Passons maintenant aux environnements de bureau. Le plus connu est certainement Gnome mais il me donne des boutons (l'interface se rapproche trop de ce que l'on voudrait pour une tablette ou un téléphone selon moi). Je préfère utiliser Cinnamon qui se rapproche de l'interface de Windows.
+Installer cinnamon :
+```bash
+pacman -S cinnamon
+```
+Ensuite ce serait pas mal de pouvoir se connecter au wifi. Network Manager permet de gérer le réseau.
+Installer Network Manager :
+```bash
+pacman -S networkmanager
+```
+Activer Network Manager :
 ```bash
 systemctl enable NetworkManager.service
 ```
+Une interface graphique tout à fait fonctionnelle est maintenant présente mais on ne pourra pas faire grand chose sans terminal et sans navigateur internet. gnome-terminal est le terminal de base de Gnome (il est très bien) et firefox ben vous connaissez.
+Installer gnome-terminal et firefox :
 ```bash
 pacman -S gnome-terminal firefox
 ```
+Maintenant on va pouvoir utiliser notre système comme on le souhaite. Il y a un certain nombre de choses qu'il ne sera possible de faire qu'après un redémarrage. Pour cela, il faut d'abord sortir du chroot.
+Sortir du chroot :
+```bash
+exit
+```
+Redémarrer :
+```bash
+reboot
+```
 ### Activer le pavé numérique au démarrage
+
 ```bash
 pacman -S numlockx
 ```
@@ -264,7 +292,7 @@ yay -S flatpak
 yay -S pamac-all
 ```
 ```bash
-sudo pacman -S bluez bluez-utils bluez-plugins
+sudo pacman -S bluez bluez-utils bluez-plugins blueman
 ```
 ```bash
 modprobe btusb
@@ -279,4 +307,16 @@ vim /etc/pacman.conf
 ```bash
 [multilib]
 Include = /etc/pacman.d/mirrorlist
+```
+## Dépôts officiels
+```bash
+pacman -S wine wget usbutils swaylock swaybg wofi reflector neofetch man-db lxappearance grim git fish steam lxtask gnome-screenshot brasero
+```
+## AUR
+```bash
+yay -S godot-mono-bin harmonoid-bin labwc logmein-hamachi pamac-all rofi-lbonn-wayland sacad sfwbar waydroid
+```
+## Flatpak
+```bash
+flatpak install ca.littlesvr.asunder com.atlauncher.ATLauncher com.discordapp.Discord com.github.Matoking.protontricks com.github.tchx84.Flatseal com.github.ztefn.haguichi com.heroicgameslauncher.hgl com.obsproject.Studio com.parsecgaming.parsec com.prusa3d.PrusaSlicer com.raggesilver.BlackBox com.usebottles.bottles com.vscodium.codium de.haeckerfelix.Shortwave eu.betterbird.Betterbird info.cemu.Cemu io.github.sameboy.SameBoy io.mgba.mGBA md.obsidian.Obsidian net.davidotek.pupgui2 net.kuribo64.melonDS net.pcsx2.PCSX2 net.rpcs3.RPCS3 net.sourceforge.Klavaro net.supertuxkart.SuperTuxKart org.DolphinEmu.dolphin-emu org.audacityteam.Audacity org.blender.Blender org.freecadweb.FreeCAD org.gimp.GIMP org.gnome.Shotwell org.inkscape.Inkscape org.kde.ark org.kde.kalk org.kde.kdenlive org.kde.krita org.libreoffice.LibreOffice org.libretro.RetroArch org.mozilla.firefox org.openmw.OpenMW org.openrgb.OpenRGB org.ppsspp.PPSSPP org.ryujinx.Ryujinx org.videolan.VLC org.yuzu_emu.yuzu
 ```
