@@ -1,12 +1,13 @@
-# Dual Boot Arch Linux et Windows avec systemd-boot
+# Installation simple d'arch linux ou en dual boot avec Windows
 ## Télécharger l'image d'Arch Linux et créer un média d'installation
 1. Télécharger une image d'Arch Linux dans la catégorie Download de leur site web
 2. Créer un média d'installation avec la commande dd sur Linux ou le logiciel Rufus sur Windows
+Commande dd :
 ```bash
 dd if=arch.iso of=/dev/media bs=4M
 ```
 ## Booter sur le média d'installation
-1. Entrer dans le bios de votre carte mère (la touche dépend de la carte mère peut-être Suppr/Del)
+1. Entrer dans le bios de votre carte mère (la touche dépend de la carte mère, probablement Suppr/Del, F4, F12 ou une autre touche Fonction)
 2. Booter sur la clé usb contenant l'image d'Arch Linux en mode UEFI
 ## Mettre le clavier en azerty
 ```bash
@@ -19,10 +20,16 @@ Pour être sûr que vous pouvez bien installer systemd-boot et que vous avez bie
 ls /sys/firmware/efi/efivars
 ```
 ## Se connecter à Internet
-Pour se connecter à Internet en wifi, procéder comme ci-dessous :
+Pour se connecter à Internet en wifi on utilisera un utilitaire appelé iwd.
+Pour utiliser l'invite de commande :
 ```bash
 iwctl
 ```
+Pour en sortir :
+```bash
+exit
+```
+La démarche pour se connecter :
 ```bash
 device list
 ```
@@ -30,7 +37,7 @@ device list
 station Station scan
 ```
 Remplacer Station par un des appareils listés par la commande précédente.
-S'il est impossible de se connecter au wifi, utiliser cette commpande :
+S'il est impossible de se connecter au wifi, quitter l'invite de commande iwctl, utiliser cette commande avant de rentrer dans l'invite de commande :
 ```bash
 rfkill unblock wifi
 ```
@@ -55,13 +62,13 @@ Modifier un disque (souvent nommé nvmeXn1 pour les disques nvme ou sdX pour les
 ```bash
 fdisk /dev/disque
 ```
-Il faut créer une partition Linux et une partition XBOOTLDR (au format Linux Extended Boot) car la partition EFI de windows n'est pas assez grande.
+Il faut obligatoirement créer une partition Linux. Pour une installation simple il faut créer une partition UEFI (appelé EFI dans fdisk). Pour un dual boot il faut créer une partition XBOOTLDR (au format Linux Extended Boot) car la partition EFI de windows n'est pas assez grande.
 ## Formater les partitions
 Formater la partition Linux en ext4 :
 ```bash
 mkfs.ext4 /dev/mountpartition
 ```
-Formater la partition XBOOTLDR en FAT32 :
+Formater la partition UEFI (installation simple) ou XBOOTLDR (dual boot) en FAT32 :
 ```bash
 mkfs.fat -F 32 /dev/efipartition
 ```
@@ -70,11 +77,11 @@ Monter la partition Linux :
 ```bash
 mount /dev/root_partition /mnt
 ```
-Monter la partition EFI de windows :
+Monter la partition EFI :
 ```bash
 mount --mkdir /dev/efi_partition /mnt/efi
 ```
-Monter la partition XBOOTLDR :
+Monter la partition XBOOTLDR (dual boot):
 ```bash
 mount --mkdir /dev/boot_partition /mnt/boot
 ```
@@ -86,6 +93,10 @@ reflector --latest 100 --sort rate --protocol https --country France --age 12 --
 La commande ci-dessous permet d'installer les paquets essentiels au fonctionnement de Linux.
 ```bash
 pacstrap -K /mnt base linux linux-firmware
+```
+Pour avoir le noyau linux zen pour waydroid :
+```bash
+pacstrap -K /mnt base linux-zen linux-firmware
 ```
 ### Fstab
 Fstab est le fichier qui indique à votre système au démarrage quels partitions il doit monter.
@@ -109,6 +120,10 @@ pacman -S networkmanager vim sudo terminal
 ```bash
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 ```
+En l'occurence :
+```bash
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+```
 ```bash
 hwclock --systohc
 ```
@@ -116,18 +131,18 @@ hwclock --systohc
 ```bash
 vim /etc/locale.gen
 ```
-Uncomment 'fr_FR.UTF-8 UTF-8'.
+Décomenter 'fr_FR.UTF-8 UTF-8'.
 ```bash
 locale-gen
 ```
 ```bash
 vim /etc/locale.conf
 ```
-Write 'LANG=fr_FR.UTF-8'.
+Ecrire 'LANG=fr_FR.UTF-8'.
 ```bash
 vim /etc/vconsole.conf
 ```
-Write 'KEYMAP=fr-latin1'.
+Ecrire 'KEYMAP=fr-latin1'.
 ### Configuration du réseau
 ```bash
 vim /etc/hostname
@@ -151,20 +166,25 @@ Il est quasiment obligatoire d'ajouter un utilisateur autre que le root au syst�
 useradd -m utilisateur
 ```
 ```bash
-usermod -aG wheel,audio,video,storage utilisateur
+usermod -aG wheel utilisateur
 ```
 ```bash
 passwd utilisateur
 ```
 ```bash
-visudo
+EDITOR=/usr/bin/vim visudo
 ```
-## Installer systemd-boot
-bootctl permet d'installer systemd-boot en tant que bootloader. Il est nécessaire de spécifier le chemin de la partition EFI et de la partition XBOOTLDR pour que l'installation se fasse correctement.
+## Boot manager (systemd-boot)
+bootctl permet d'installer systemd-boot en tant que bootloader. Il est nécessaire de spécifier le chemin de la partition EFI et de la partition XBOOTLDR pour que l'installation en dual boot se fasse correctement.
+Installation simple :
+```bash
+bootctl install
+```
+Dual boot :
 ```bash
 bootctl --esp-path=/efi --boot-path=/boot install
 ```
-Normallement la partition windows sera automatiquement détectée.
+Normallement la partition windows sera automatiquement détectée pour le dual boot.
 Il est cependant nécessaire de rajouter une entrée pour que Arch Linux soit détecté.
 ```bash
 vim /boot/loader/loader.conf
@@ -189,12 +209,25 @@ options root=PARTUUID=YOUR_PARTUUID
 pacman -S ucode
 ```
 Remplacer ucode par amd-ucode ou intel-ucode.
-# Installer un environnement de bureau
+## Installer un environnement de bureau
+Pour 
 ```bash
-pacman -S lightdm lightdm-gtk-greeter xorg cinnamon
+pacman -S xorg
+```
+```bash
+pacman -S lightdm lightdm-gtk-greeter
+```
+```bash
+pacman -S sddm
+```
+```bash
+pacman -S cinnamon
 ```
 ```bash
 systemctl enable lightdm.service
+```
+```bash
+systemctl enable sddm.service
 ```
 ```bash
 systemctl enable NetworkManager.service
@@ -202,9 +235,7 @@ systemctl enable NetworkManager.service
 ```bash
 pacman -S gnome-terminal firefox
 ```
-```bash
-localectl set-x11-keymap fr
-```
+### Activer le pavé numérique au démarrage
 ```bash
 pacman -S numlockx
 ```
@@ -214,6 +245,10 @@ vim /etc/lightdm/lightdm.conf
 ```bash
 [Seat:*]
 greeter-setup-script=/usr/bin/numlockx on
+```
+## Post-installation
+```bash
+localectl set-x11-keymap fr
 ```
 ```bash
 pacman -S git base-devel
@@ -237,6 +272,7 @@ modprobe btusb
 ```bash
 systemctl enable bluetooth.service
 ```
+## Activer le multilib
 ```bash
 vim /etc/pacman.conf
 ```
