@@ -1,4 +1,11 @@
-- [ ] Grand oral
-- [ ] tint2
-- [ ] batterie
-- [ ] sound
+- [ ] Galette de blé noir
+- [ ] Pâtes bolognaise
+- [ ] Oeufs sur le plats et bacon et flageolets/mogettes
+- [ ] Salade de riz
+- [ ] Pizza maison
+- [ ] Pâtes à la crème
+- [ ] Pâtes carbonara
+- [ ] Sandwich
+- [ ] Croque monsieur
+- [ ] Croissant au jambon
+- [ ] Rougail saucisses
