@@ -4,7 +4,7 @@
 2. Créer un média d'installation avec la commande dd sur Linux ou le logiciel Rufus sur Windows
 Commande dd :
 ```bash
-dd if=arch.iso of=/dev/media bs=4M
+dd if=arch.iso of=/dev/media bs=4M & sync
 ```
 ## Booter sur le média d'installation
 1. Entrer dans le bios de votre carte mère (la touche dépend de la carte mère, probablement Suppr/Del, F4, F12 ou une autre touche Fonction)
@@ -135,6 +135,7 @@ hwclock --systohc
 vim /etc/locale.gen
 ```
 Décommenter 'fr_FR.UTF-8 UTF-8'.
+Décommenter 'en_US.UTF-8 UTF-8'
 ```bash
 locale-gen
 ```
@@ -142,6 +143,7 @@ locale-gen
 vim /etc/locale.conf
 ```
 Écrire 'LANG=fr_FR.UTF-8'.
+Écrire 'LANG=en_US.UTF-8'.
 ```bash
 vim /etc/vconsole.conf
 ```
@@ -155,9 +157,9 @@ vim /etc/hostname
 vim /etc/hosts
 ```
 ```bash
-127.0.0.1 localhost
-::1 localhost
-127.0.1.1 myarch
+127.0.0.1        localhost
+::1              localhost
+127.0.1.1        myhostname
 ```
 ### Mot de passe root
 ```bash
@@ -165,6 +167,9 @@ passwd
 ```
 ### Ajouter un utilisateur
 Il est quasiment obligatoire d'ajouter un utilisateur autre que le root au système car se connecter au PC en ayant tous les droits pose des problèmes de sécurité considérables.
+```bash
+useradd -m -G wheel utilisateur
+```
 ```bash
 useradd -m utilisateur
 ```
@@ -202,10 +207,18 @@ blkid /dev/root_partition
 ```bash
 vim /boot/loader/entries/arch.conf
 ```
+Noyau linux :
 ```bash
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
+options root=PARTUUID=YOUR_PARTUUID
+```
+Noyau linux-zen :
+```bash
+title Arch Linux
+linux /vmlinuz-linux-zen
+initrd /initramfs-linux-zen.img
 options root=PARTUUID=YOUR_PARTUUID
 ```
 ```bash
@@ -229,7 +242,7 @@ systemctl enable lightdm.service
 ```
 SDDM :
 ```bash
-pacman -S sddm
+pacman -S sddm plasma-workspace
 ```
 ```bash
 systemctl enable sddm.service
@@ -310,7 +323,7 @@ Include = /etc/pacman.d/mirrorlist
 ```
 ## Dépôts officiels
 ```bash
-pacman -S wine wget usbutils swaylock swaybg wofi reflector neofetch man-db lxappearance grim git fish steam lxtask gnome-screenshot brasero
+pacman -S wine wget usbutils swaylock swaybg wofi reflector neofetch man-db lxappearance grim git fish steam lxtask gnome-screenshot brasero openssh
 ```
 ## AUR
 ```bash
