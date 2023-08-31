@@ -1,0 +1,1 @@
+pacman -S wine usbutils swaylock swaybg wofi reflector neofetch arch-install-scripts git base-devel fish openssh bluez bluez-utils bluez-plugins blueman flatpak noto-fonts-cjk noto-fonts-emoji noto-fonts gnome-terminal cinnamon gnome-themes-extra networkmanager sddm plasma-workspace xorg amd-ucode man-db vim sudo

@@ -118,6 +118,14 @@ Installer des paquets :
 ```bash
 pacman -S vim sudo
 ```
+## Dépôts officiels
+```bash
+pacman -S wine wget usbutils swaylock swaybg wofi reflector neofetch arch-install-scripts git base-devel fish openssh bluez bluez-utils bluez-plugins blueman flatpak noto-fonts-cjk noto-fonts-emoji noto-fonts gnome-terminal cinnamon gnome-themes-extra networkmanager sddm plasma-workspace xorg amd-ucode man-db vim sudo
+```
+```bash
+pacman -S wget
+```
+
 On installe vim et sudo. vim est un éditeur de texte qui s'utilise d'une certaine manière (à venir). On aura besoin de vim par la suite. sudo permet en tant qu'utilisateur d'obtenir les droits d'administrateur pour modifier le système.
 ### Time zone
 ```bash
@@ -247,10 +255,24 @@ pacman -S sddm plasma-workspace
 ```bash
 systemctl enable sddm.service
 ```
+```bash
+vim /usr/lib/sddm/sddm.conf.d/default.conf
+```
+```bash
+[Theme]
+Current=breeze
+```
+```bash
+vim /usr/share/sddm/themes/breeze/theme.conf.user
+```
+```bash
+[General]
+background=/usr/share/sddm/themes/breeze/background.jpg
+```
 Passons maintenant aux environnements de bureau. Le plus connu est certainement Gnome mais il me donne des boutons (l'interface se rapproche trop de ce que l'on voudrait pour une tablette ou un téléphone selon moi). Je préfère utiliser Cinnamon qui se rapproche de l'interface de Windows.
 Installer cinnamon :
 ```bash
-pacman -S cinnamon
+pacman -S cinnamon gnome-themes-extra
 ```
 Ensuite ce serait pas mal de pouvoir se connecter au wifi. Network Manager permet de gérer le réseau.
 Installer Network Manager :
@@ -301,7 +323,6 @@ makepkg -si
 yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
-yay -S flatpak
 yay -S pamac-all
 ```
 ```bash
@@ -321,10 +342,7 @@ vim /etc/pacman.conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
-## Dépôts officiels
-```bash
-pacman -S wine wget usbutils swaylock swaybg wofi reflector neofetch man-db lxappearance grim git fish steam lxtask gnome-screenshot brasero openssh
-```
+
 ## AUR
 ```bash
 yay -S godot-mono-bin harmonoid-bin labwc logmein-hamachi pamac-all rofi-lbonn-wayland sacad sfwbar waydroid
