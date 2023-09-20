@@ -1,4 +1,4 @@
-- Tales of
+o- Tales of
 - Minecraft 
 - Terraria
 - Morrowind
@@ -38,6 +38,7 @@
 - Monster hunter world
 
 - Tales of
+- Zelda
 - Minecraft
 - Morrowind
 - Skyrim

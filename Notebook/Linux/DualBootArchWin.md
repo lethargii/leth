@@ -110,6 +110,15 @@ arch-chroot /mnt
 Cette commande permet de se connecter en tant que root (administrateur) à votre nouveau système.
 ## Installation de quelques paquets
 C'est à ce moment que l'on fait la rencontre du gestionnaire de paquets d'Arch : pacman. Pour ceux qui ne savent pas c'est ce qui sert à télécharger des applications en gros. Avant de télécharger un paquet il ne faut pas oublier de synchroniser les dépôts (parce que sinon ben on peut rien télécharger).
+## Activer le multilib
+```bash
+vim /etc/pacman.conf
+```
+```bash
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
 Synchroniser les dépôts :
 ```bash
 pacman -Ssy
@@ -120,13 +129,29 @@ pacman -S vim sudo
 ```
 ## Dépôts officiels
 ```bash
-pacman -S wine wget usbutils swaylock swaybg wofi reflector neofetch arch-install-scripts git base-devel fish openssh bluez bluez-utils bluez-plugins blueman flatpak noto-fonts-cjk noto-fonts-emoji noto-fonts gnome-terminal cinnamon gnome-themes-extra networkmanager sddm plasma-workspace xorg amd-ucode man-db vim sudo
+pacman -S wine winetricks nemo nemo-fileroller gvfs-mtp gparted cdrtools brasero dosfstools mako wget usbutils swaylock swaybg wofi reflector neofetch arch-install-scripts git base-devel fish openssh bluez bluez-utils bluez-plugins blueman flatpak noto-fonts-cjk noto-fonts-emoji noto-fonts grim gnome-terminal cinnamon sddm gnome-themes-extra networkmanager network-manager-applet sddm plasma-workspace xorg amd-ucode man-db vim sudo mesa polkit-gnome python reflector lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 ```
 ```bash
 pacman -S wget
 ```
+```bash
+wget https://lethargii.github.io/leth/Linux/packages.sh
+```
+```bash
+sh packages.sh
+```
 
 On installe vim et sudo. vim est un éditeur de texte qui s'utilise d'une certaine manière (à venir). On aura besoin de vim par la suite. sudo permet en tant qu'utilisateur d'obtenir les droits d'administrateur pour modifier le système.
+
+Pour utiliser vim avec un autre terminal :
+```bash
+vim /usr/share/applications/vim.desktop
+```
+```bash
+TryExec=vim
+Exec=flatpak run com.raggesilver.BlackBox -c 'vim %F'
+Terminal=false
+```
 ### Time zone
 ```bash
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
@@ -323,6 +348,7 @@ makepkg -si
 yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
+yay -S flatpak
 yay -S pamac-all
 ```
 ```bash
@@ -334,20 +360,38 @@ modprobe btusb
 ```bash
 systemctl enable bluetooth.service
 ```
-## Activer le multilib
-```bash
-vim /etc/pacman.conf
-```
-```bash
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-```
+
 
 ## AUR
 ```bash
-yay -S godot-mono-bin harmonoid-bin labwc logmein-hamachi pamac-all rofi-lbonn-wayland sacad sfwbar waydroid
+yay -S godot-mono-bin labwc logmein-hamachi pamac-all rofi-lbonn-wayland sacad sfwbar adwaita-qt4 adwaita-qt5-git adwaita-qt6-git
+```
+```bash
+wget https://lethargii.github.io/leth/Linux/aur.sh
+```
+```bash
+sh aur.sh
 ```
 ## Flatpak
 ```bash
-flatpak install ca.littlesvr.asunder com.atlauncher.ATLauncher com.discordapp.Discord com.github.Matoking.protontricks com.github.tchx84.Flatseal com.github.ztefn.haguichi com.heroicgameslauncher.hgl com.obsproject.Studio com.parsecgaming.parsec com.prusa3d.PrusaSlicer com.raggesilver.BlackBox com.usebottles.bottles com.vscodium.codium de.haeckerfelix.Shortwave eu.betterbird.Betterbird info.cemu.Cemu io.github.sameboy.SameBoy io.mgba.mGBA md.obsidian.Obsidian net.davidotek.pupgui2 net.kuribo64.melonDS net.pcsx2.PCSX2 net.rpcs3.RPCS3 net.sourceforge.Klavaro net.supertuxkart.SuperTuxKart org.DolphinEmu.dolphin-emu org.audacityteam.Audacity org.blender.Blender org.freecadweb.FreeCAD org.gimp.GIMP org.gnome.Shotwell org.inkscape.Inkscape org.kde.ark org.kde.kalk org.kde.kdenlive org.kde.krita org.libreoffice.LibreOffice org.libretro.RetroArch org.mozilla.firefox org.openmw.OpenMW org.openrgb.OpenRGB org.ppsspp.PPSSPP org.ryujinx.Ryujinx org.videolan.VLC org.yuzu_emu.yuzu
+flatpak install ca.littlesvr.asunder org.prismlauncher.PrismLauncher com.discordapp.Discord com.github.Matoking.protontricks com.github.tchx84.Flatseal com.github.ztefn.haguichi com.heroicgameslauncher.hgl com.obsproject.Studio com.parsecgaming.parsec com.prusa3d.PrusaSlicer com.raggesilver.BlackBox com.usebottles.bottles com.vscodium.codium de.haeckerfelix.Shortwave eu.betterbird.Betterbird info.cemu.Cemu io.github.sameboy.SameBoy io.mgba.mGBA md.obsidian.Obsidian net.davidotek.pupgui2 net.kuribo64.melonDS net.pcsx2.PCSX2 net.rpcs3.RPCS3 net.sourceforge.Klavaro net.supertuxkart.SuperTuxKart org.DolphinEmu.dolphin-emu org.audacityteam.Audacity org.blender.Blender org.freecadweb.FreeCAD org.gimp.GIMP org.inkscape.Inkscape org.kde.kdenlive org.libreoffice.LibreOffice org.libretro.RetroArch org.mozilla.firefox org.openmw.OpenMW org.openrgb.OpenRGB org.ppsspp.PPSSPP org.ryujinx.Ryujinx org.videolan.VLC org.yuzu_emu.yuzu org.citra_emu.citra io.missioncenter.MissionCenter com.valvesoftware.Steam org.gnome.Calculator ro.go.hmlendea.DL-Desktop org.gnome.Music io.github.harmonoid.harmonoid
+```
+```bash
+sudo flatpak override --env=GTK_THEME=Adwaita:dark org.audacityteam.Audacity
+sudo flatpak override --env=GTK_THEME=Adwaita:dark info.cemu.Cemu
+sudo flatpak override --env=GTK_THEME=Adwaita:dark org.DolphinEmu.dolphin-emu
+sudo flatpak override --env=GTK_THEME=Adwaita:dark net.sourceforge.Klavaro
+sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark net.kuribo64.melonDS
+sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark io.mgba.mGBA
+sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark org.openmw.OpenMW
+sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark org.openrgb.OpenRGB
+sudo flatpak override --env=GTK_THEME=Adwaita:dark com.github.Matoking.protontricks
+sudo flatpak override --env=PRUSA_SLICER_DARK_THEME=true com.prusa3d.PrusaSlicer
+sudo flatpak override --env=GTK_THEME=Adwaita:dark org.ryujinx.Ryujinx
+sudo flatpak override --env=GTK_THEME=Adwaita:dark com.vscodium.codium
+flatpak install org.flatpak.Builder org.freedesktop.Sdk//23.08 org.freedesktop.Sdk.Extension.dotnet7//23.08
+git clone https://github.com/CharlieQLe/io.github.MakovWait.Godots.git
+cd io.github.MakovWait.Godots
+flatpak install org.freedesktop.Sdk.Extension.openjdk11/x86_64/23.08
+flatpak run org.flatpak.Builder --force-clean --install --user -y builddir io.github.MakovWait.Godots.json
 ```
