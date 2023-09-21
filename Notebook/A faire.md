@@ -4,7 +4,9 @@
 - [ ] Godot
 - [ ] GRUB or refind install of arch linux
 - [ ] Screenshot under wayland
-- [ ] Freeac
 - [ ] Thunderbird
 - [ ] tes3mp
-- [ ] Use gtk for labwc
+- [ ] Image viewer
+- [ ] veloren
+- [ ] game boy studio
+- [ ] youtube downloader plus
