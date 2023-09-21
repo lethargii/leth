@@ -1,12 +1,10 @@
-- [ ] Bluetooth not working at boot
-- [ ] Tray icons for volume and date
-- [ ] English
-- [ ] Godot
-- [ ] GRUB or refind install of arch linux
-- [ ] Screenshot under wayland
+- [ ] Bluetooth not working at boot (changing kernel or downgrade?)
+- [ ] Tray icons for volume and date and wifi
+- [ ] Godot, Harmonoid and TES3MP flatpak
+- [ ] GRUB or rEFInd install of arch linux
+- [ ] Screenshot/screensharing under wayland (for discord as well)
 - [ ] Thunderbird
-- [ ] tes3mp
-- [ ] Image viewer
-- [ ] veloren
+- [ ] Images/videos viewer
+- [ ] Veloren
 - [ ] game boy studio
 - [ ] youtube downloader plus
