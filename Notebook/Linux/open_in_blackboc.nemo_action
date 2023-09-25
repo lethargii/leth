@@ -1,0 +1,8 @@
+[Nemo Action]
+
+Name=Open in Black Box
+Comment=Open the 'Black Box' terminal in the selected folder
+Exec=flatpak run com.raggesilver.BlackBox --working-directory="%F"
+Icon-Name=com.raggesilver.BlackBox
+Selection=any
+Extensions=dir;

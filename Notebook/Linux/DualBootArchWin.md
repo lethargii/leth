@@ -129,9 +129,6 @@ pacman -S vim sudo
 ```
 ## Dépôts officiels
 ```bash
-pacman -S wine winetricks nemo nemo-fileroller gvfs-mtp gparted cdrtools brasero dosfstools mako wget usbutils swaylock swaybg wofi reflector neofetch arch-install-scripts git base-devel fish openssh bluez bluez-utils bluez-plugins blueman flatpak noto-fonts-cjk noto-fonts-emoji noto-fonts grim gnome-terminal cinnamon sddm gnome-themes-extra networkmanager network-manager-applet sddm plasma-workspace xorg amd-ucode man-db vim sudo mesa polkit-gnome python reflector lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
-```
-```bash
 pacman -S wget
 ```
 ```bash
@@ -364,9 +361,6 @@ systemctl enable bluetooth.service
 
 ## AUR
 ```bash
-yay -S godot-mono-bin labwc logmein-hamachi pamac-all rofi-lbonn-wayland sacad sfwbar adwaita-qt4 adwaita-qt5-git adwaita-qt6-git
-```
-```bash
 wget https://lethargii.github.io/leth/Linux/aur.sh
 ```
 ```bash
@@ -374,24 +368,8 @@ sh aur.sh
 ```
 ## Flatpak
 ```bash
-flatpak install ca.littlesvr.asunder org.prismlauncher.PrismLauncher com.discordapp.Discord com.github.Matoking.protontricks com.github.tchx84.Flatseal com.github.ztefn.haguichi com.heroicgameslauncher.hgl com.obsproject.Studio com.parsecgaming.parsec com.prusa3d.PrusaSlicer com.raggesilver.BlackBox com.usebottles.bottles com.vscodium.codium de.haeckerfelix.Shortwave eu.betterbird.Betterbird info.cemu.Cemu io.github.sameboy.SameBoy io.mgba.mGBA md.obsidian.Obsidian net.davidotek.pupgui2 net.kuribo64.melonDS net.pcsx2.PCSX2 net.rpcs3.RPCS3 net.sourceforge.Klavaro net.supertuxkart.SuperTuxKart org.DolphinEmu.dolphin-emu org.audacityteam.Audacity org.blender.Blender org.freecadweb.FreeCAD org.gimp.GIMP org.inkscape.Inkscape org.kde.kdenlive org.libreoffice.LibreOffice org.libretro.RetroArch org.mozilla.firefox org.openmw.OpenMW org.openrgb.OpenRGB org.ppsspp.PPSSPP org.ryujinx.Ryujinx org.videolan.VLC org.yuzu_emu.yuzu org.citra_emu.citra io.missioncenter.MissionCenter com.valvesoftware.Steam org.gnome.Calculator ro.go.hmlendea.DL-Desktop org.gnome.Music io.github.harmonoid.harmonoid
+wget https://lethargii.github.io/leth/Linux/flatpak.sh
 ```
 ```bash
-sudo flatpak override --env=GTK_THEME=Adwaita:dark org.audacityteam.Audacity
-sudo flatpak override --env=GTK_THEME=Adwaita:dark info.cemu.Cemu
-sudo flatpak override --env=GTK_THEME=Adwaita:dark org.DolphinEmu.dolphin-emu
-sudo flatpak override --env=GTK_THEME=Adwaita:dark net.sourceforge.Klavaro
-sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark net.kuribo64.melonDS
-sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark io.mgba.mGBA
-sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark org.openmw.OpenMW
-sudo flatpak override --env=QT_STYLE_OVERRIDE=adwaita-dark org.openrgb.OpenRGB
-sudo flatpak override --env=GTK_THEME=Adwaita:dark com.github.Matoking.protontricks
-sudo flatpak override --env=PRUSA_SLICER_DARK_THEME=true com.prusa3d.PrusaSlicer
-sudo flatpak override --env=GTK_THEME=Adwaita:dark org.ryujinx.Ryujinx
-sudo flatpak override --env=GTK_THEME=Adwaita:dark com.vscodium.codium
-flatpak install org.flatpak.Builder org.freedesktop.Sdk//23.08 org.freedesktop.Sdk.Extension.dotnet7//23.08
-git clone https://github.com/CharlieQLe/io.github.MakovWait.Godots.git
-cd io.github.MakovWait.Godots
-flatpak install org.freedesktop.Sdk.Extension.openjdk11/x86_64/23.08
-flatpak run org.flatpak.Builder --force-clean --install --user -y builddir io.github.MakovWait.Godots.json
+sh flatpak.sh
 ```
