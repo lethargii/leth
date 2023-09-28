@@ -144,4 +144,59 @@ def maximum_tab(t1,t2):
             t3+=t2[i]
     return t3
 
-def compte
+def compte_elements(tab,x):
+    compteur=0
+    for element in tab:
+        if element==x:
+            compteur+=1
+    return compteur
+
+# Exercice 22
+res=[i**2+1 for i in range(5)]
+
+# Exercice 23
+def l_1(n):
+    liste=[]
+    for i in range(n):
+        liste+=[2*i+1]
+    return liste
+
+def l_2(n):
+    return [2*i+1 for i in range(n)]
+
+# Exercice 24
+from math import sqrt
+def liste_u(n):
+    liste=[2]
+    for i in range(n):
+        liste+=[liste[-1]+sqrt(liste[-1])+1]
+    return liste
+
+# Exercice 25
+def elim_occur(l,x):
+    liste=[]
+    for element in l:
+        if element!=x:
+            liste+=element
+    return liste
+
+# Exercice 26
+def liste_miroir(l):
+    liste=[]
+    for i in range(len(l)):
+        liste+=l[-i-1]
+    return liste
+
+# Exercice 27
+def palindrome(liste):
+    return liste==liste_miroir(liste)
+
+# Exercice 28
+def second_ppt_element(liste):
+    ppt2=liste[0]
+    ppt1=ppt2
+    for element in liste:
+        if element<ppt1:
+            ppt2=ppt1
+            ppt1=element
+    return ppt2
