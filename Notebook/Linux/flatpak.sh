@@ -13,3 +13,7 @@ sudo flatpak override --env=GTK_THEME=Adwaita:dark org.ryujinx.Ryujinx
 sudo flatpak override --env=GTK_THEME=Adwaita:dark com.vscodium.codium
 sudo flatpak override --env=GTK_THEME=Adwaita-dark org.gnome.Music
 sudo flatpak override --env=GTK_THEME=Adwaita-dark org.gnome.Calculator
+sudo flatpak override --env=GTK_THEME=Adwaita-dark com.github.tchx84.Flatseal
+sudo flatpak override --env=GTK_THEME=Adwaita-dark com.usebottles.bottles
+sudo flatpak override --env=GTK_THEME=Adwaita-dark de.haeckerfelix.Shortwave
+sudo flatpak override --env=GTK_THEME=Adwaita-dark io.missioncenter.MissionCenter
