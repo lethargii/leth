@@ -11,3 +11,5 @@ sudo flatpak override --env=GTK_THEME=Adwaita:dark com.github.Matoking.protontri
 sudo flatpak override --env=PRUSA_SLICER_DARK_THEME=true com.prusa3d.PrusaSlicer
 sudo flatpak override --env=GTK_THEME=Adwaita:dark org.ryujinx.Ryujinx
 sudo flatpak override --env=GTK_THEME=Adwaita:dark com.vscodium.codium
+sudo flatpak override --env=GTK_THEME=Adwaita-dark org.gnome.Music
+sudo flatpak override --env=GTK_THEME=Adwaita-dark org.gnome.Calculator
