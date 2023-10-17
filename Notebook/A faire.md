@@ -1,7 +1,5 @@
 - [ ] Bluetooth not working at boot (changing kernel or downgrade?)
 - [ ] Tray icons for volume and date and wifi
 - [ ] Godot, Harmonoid and TES3MP flatpak
-- [ ] Screenshot/screensharing under wayland (for discord as well)
-- [ ] Images/videos viewer
-- [ ] Veloren
-- [ ] game boy studio
+- [ ] Screenshot/screensharing under wayland
+- [ ] Veloren, GB studio
