@@ -1,0 +1,1 @@
+For our city of the future we have chosen to use 3 transports types : the subway, bicycles and vehicles. The Subway will be the most used transport type. It is one of the safest transport types and is theoretically the fastest way to get from one place to another for the reasons we'll talk about later on. Bicycles would be used when taking the subway is not necessary.
