@@ -1,7 +1,7 @@
 ### Pasteis de Nata
 - 600g de pâte feuilleté 
 - 50 cl de lait 
-- 1 bâton de cannelle
+- Cannelle
 - 60g de farine de blé 
 - 400g de sucre
 - 25 cl d’eau
