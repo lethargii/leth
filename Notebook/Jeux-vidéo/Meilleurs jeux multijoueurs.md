@@ -1,4 +1,4 @@
-o- Tales of
+- Tales of
 - Minecraft 
 - Terraria
 - Morrowind

@@ -9,11 +9,10 @@
 ### Riz au lait
 - 1 litre de lait
 - 180g de riz rond
-- 1 gousse de vanille
-- 100g de sucre
-- Une pincée de sel
+- 100g de sucre + sucre vanillé
 ### Clafoutis
 ### Crème brûlée
+### Phar breton
 ### Crème vanille
 ### Flan
 - 90g de farine
