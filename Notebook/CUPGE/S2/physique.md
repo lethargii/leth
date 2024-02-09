@@ -107,7 +107,7 @@ $$\vec{grad}f(x)=\frac{\partial f}{\partial x}\vec {u_x} + \frac{\partial f}{\pa
 en coordonnées cartésiennes,  
 $$\vec{grad}f = \frac{\partial f}{\partial r}\vec {u_r} + \frac{1}{r}\frac{\partial f}{\partial \theta}\vec {u_\theta} + \frac{\partial f}{\partial z}\vec {u_z}$$  
 en coordonnées cylindriques, et :  
-$$\vec{grad}f = \frac{\partial f}{\partial r}\vec {u_r} + \frac{1}{r}\frac{\partial f}{\partial \theta}\vec {u_\theta} + \frac{1}{r\sin{\theta}}\frac{\partial f}{\partial \Phi}\vec {u_\Phi}$$ 
+$$\vec{grad}f = \frac{\partial f}{\partial r}\vec {u_r} + \frac{1}{r}\frac{\partial f}{\partial \theta}\vec {u_\theta} + \frac{1}{r\sin{\theta}}\frac{\partial f}{\partial \Phi}\vec {u_\varphi}$$ 
 en coordonnées sphériques. 
 # III - Potentiel électrostatique  
 ### 1- Potentiel électrostatique créé par une charge  
@@ -119,4 +119,5 @@ $V_K(M)=\frac{q}{4\pi\epsilon_0r}+K$
 Calculons le gradient de $V_K$.  
 $$\begin{align*}\vec{grad}V_K(M)= & \frac{\partial V_K}{\partial r}(M)\vec {u_r} + \frac{1}{r}\frac{\partial V_K}{\partial \theta}(M)\vec {u_\theta} + \frac{1}{r\sin{\theta}}\frac{\partial V_K}{\partial \Phi}(M)\vec {u_\Phi} \\ & = \frac{\partial V_K}{\partial r}(M)\vec{u_r}\\ & = - \frac{q}{4\pi\epsilon_0}\cdot\frac{1}{r^2}\vec{u_r}\\ & = -\vec E(M)
 \end{align*}$$  
-Le champ électrostatique $\vec{E}(M)$ créé par une charge ponctuelle est donc un champ de gradient, i.e. qu'il s'écrit comme le gradient d'une fonction scalaire. Une telle fonction se nomme potentiel électrostatique. On dit que le champ électrostatiqur dérive d'un potentiel électrostatique.
+Le champ électrostatique $\vec{E}(M)$ créé par une charge ponctuelle est donc un champ de gradient, i.e. qu'il s'écrit comme le gradient d'une fonction scalaire. Une telle fonction se nomme potentiel électrostatique. On dit que le champ électrostatique dérive d'un potentiel électrostatique.
+$$

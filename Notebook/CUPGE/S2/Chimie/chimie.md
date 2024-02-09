@@ -117,3 +117,73 @@ $$\begin{align*}\sigma & = \lambda^°_{H_3O^+}[H_3O^+]+\lambda^°_{Na^+}[Na^+]+\
 & = \lambda^°_{H_3O^+}(\frac{C_0V_0-CV}{V_0 })+\lambda^°_{Na^+}(\frac{CV}{V_0+V})+\lambda^°_{Cl^-}(\frac{C_0V_0}{V+V_0})\\
 & =
 \end{align*}$$
+$$
+CH_{3}COOH + OH^{-} \xleftrightharpoons{K_{a}} CH_{3}COO^{-}+H_{3}O^{+}
+$$
+hexa aqua aluminium III
+di chloro argentate I
+hexa aqua cuivre II
+tétra cyano nickelate II
+tétra hydroxo cuivrate II
+di chloro tétra ammine cobalt III
+
+$\text{EDTA}$        $Y^{4-}$
+$Cu^{2+}_{(aq)} + NH_{3(aq)} \xleftrightharpoons{K_{f1}} Cu(NH_{3})^{2+}_{(aq)}$
+$Cu(NH_{3})^{2+} + NH_{3} \xleftrightharpoons{K_{f2}} Cu(NH_{3})_{2}^{2+}$
+$Cu(NH_{3})_{2}^{2+} + NH_{3} \xleftrightharpoons{K_{f3}} Cu(NH_{3})_{3}^{2+}$
+$Cu(NH_{3})_{3}^{2+} + NH_{3} \xleftrightharpoons{K_{f4}} Cu(NH_{3})_{4}^{2+}$
+
+$Cu^{2+}_{(aq)} + NH_{3(aq)} \xleftrightharpoons{\beta_{4}} Cu(NH_{3})_{4}^{2+}$
+$\beta_{4} = K_{f1}\cdot K_{f2} \cdot K_{f3} \cdot K_{f4}$
+$\beta_{4} > \beta_{3} > \beta_{2} > \beta_{1}$
+$M + L \overunderset{K_{f}}{K_{d}}\leftrightharpoons ML$
+$juju^{\infty}+ lulu^{\infty} = \infty$
+$\overunderset{JUJU}{LULU}\leftrightharpoons$
+$Fe^{3+} + SCN^{-} \overunderset{K_{f}}{}\leftrightharpoons Fe(SCN)^{2+}$
+$Fe(SCN)^{3+} + F^{-} \overunderset{K_{f'}}{}\leftrightharpoons FeF^{2+} + SCN^{-}$
+$K_{f'} > K_{f}$
+$Cu(H_{2}O)^{2+}_{6} + 4NH_{3} \overunderset{}{}\leftrightharpoons Cu(NH_{3})_{4}(H_{2}O)_{2} + 4H_{2}O$
+1- 
+a. 
+$Ni^{2+} + L \overunderset{K_{f1}}{}\leftrightharpoons NiL^{2+}$
+$K_{f1}=10^{\log_{}{K_{f1}}}=10^{7,6}$
+$NiL^{2+} + L \overunderset{K_{f2}}{}\leftrightharpoons NiL^{2+}_{2}$
+$NiL^{2+}_{2} + L \overunderset{K_{f2}}{}\leftrightharpoons NiL^{2+}_{3}$
+$K_{f2}=10^{\log_{}{K_{f2}}}=10^{6,4}$
+
+$K_{f3}=10^{\log_{}{K_{f3}}}=10^{4,5}$
+$\beta_{1}=K_{1}=10^{6,4}$
+$\beta_{2}=\beta_{1}\cdot K_{2}=10^{14}$
+$\beta_{3}=\beta_{2}\cdot K_{3}=10^{18,5}$
+
+
+$Hg^{2+} + L \overunderset{K_{f1'}}{}\leftrightharpoons HgL^{2+}$
+$HgL^{2+} + L \overunderset{K_{f2'}}{}\leftrightharpoons HgL_{2}^{2+}$
+$\beta_{1}= 10^{14,3}$
+$\beta_{2}=10^{23,3}$
+b. ![[Drawing 2024-02-07 10.36.12.excalidraw]]
+$K=10^{pK_{d1'}-pK_{d3}}=10^{14,3-4,5}=10^{9,8}>>1$
+$CU^{2+} + H_{2}Y^{2-} \overunderset{}{}\leftrightharpoons CuY^{2-} + 2H^{+}$
+$\qquad\qquad M+Y \overunderset{K_{f}}{K_{d}}\leftrightharpoons MY$
+$V=0 \quad C_{0}V_{0}\quad0\qquad0$
+$0<V<V_{e} \quad C_{0}V_{0}-CV\quad\approx0\qquad CV$
+$V=V_{e} \quad \approx0\quad\approx0\qquad C_{0}V_{0}$
+$V>V_{e} \quad \approx0\quad CV-C_{0}V_{0}\qquad C_{0}V_{0}$
+
+$K_{d}= \frac{[M][Y]}{[MY]}=\frac{[M]^{2}}{[MY]}$
+$[M]=\sqrt[]{K_{d}[MY]}$
+$K_{d}=\frac{[M][Y]}{[MY]}$
+$\Longrightarrow [M]=K_{d} \frac{[MY]}{[Y]} \Longrightarrow pM - \log_{}{K_{d}} - \log_{}{\frac{[MY]}{[Y]}}=pK_{d}+\log_{}{\frac{[Y]}{[MY]}}$
+$HIn + H_{2}O \overunderset{K_{i}}{}\leftrightharpoons In^{-} +H_{3}O^{+}$
+$M+In\overunderset{K_{f^{'}}}{}\leftrightharpoons MIn$
+$K_{f}>>K_{f^{'}}$
+Il faut que le complexe soit plus fort que l'indicateur coloré.
+### Chapitre VII
+$NaCl_{(s)} \overunderset{K_{s}}{}\leftrightharpoons Na^{+}_{(aq)}+Cl^{-}_{(aq)}$
+$Ag^{+}_{(aq)}+Cl^{-}_{(aq)}\overunderset{}{}\leftrightharpoons AgCl_{(s)}$
+$\qquad BaSO_{4}\overunderset{K_{s}}{}\leftrightharpoons Ba^{2+}+ SO_{4}^{2-}$
+$EI\quad Excès\quad 0 \quad 0$
+$EI\quad Excès\quad s \quad s$
+$K_{s}=[Ba^{2+}][SO_{4}^{2+}]=s^{2}\Longrightarrow s =\sqrt[]{K_{s}}=\sqrt[]{10^{-10}}=10^{-5}\text{mol/L}$
+
+![[Existence]]

@@ -2,7 +2,7 @@
 #
 # Jeu du pendu en bash
 
-DICT=$HOME/dict.txt
+DICT=$1
 NB_TENTATIVES=10
 function choisi_mot(){
 	MOT_A_TROUVER=$(head $DICT -n $[$RANDOM % $(wc -m < $DICT) + 1] | tail -n 1)
@@ -58,18 +58,17 @@ function jeu_pendu(){
 	choisi_mot
 	while [ $NB_TENTATIVES -gt 0 ] ; do
 		affiche_pendu
-		echo Lettres testées :
-		echo ${LETTRES_TESTEES[@]}
+		echo Lettres testées : ${LETTRES_TESTEES[@]}
 		echo -e "\n$MOT_DEVINE\n"
-		echo Choisissez une lettre.
+		echo "Choisissez une lettre : "
 		read LETTRE
 		while ! [[ $LETTRES_RESTANTES =~ $LETTRE ]] || [[ ! $LETTRE ]] ; do
 			echo Lettre choisie incorrecte.
 			affiche_pendu
-			echo Lettres testées :
+			echo Lettres testées : 
 			echo ${LETTRES_TESTEES[@]}
 			echo -e "\n$MOT_DEVINE\n"
-			echo Choisissez une lettre.
+			echo Choisissez une lettre : 
 			read LETTRE
 		done
 		test_lettre $LETTRE
