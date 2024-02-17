@@ -74,7 +74,7 @@ function jeu_pendu(){
 		echo -e "\n$MOT_DEVINE\n"
 		echo "Choisissez une lettre : "
 		read LETTRE
-		while ! [[ $LETTRES_RESTANTES =~ $LETTRE ]] || [[ ! $LETTRE ]] ; do
+		while ! [[ $LETTRES_RESTANTES =~ $LETTRE ]] || [[ ! $LETTRE ]] || [[ ! $(echo -n $LETTRE | wc -c) -eq 1 ]] ; do
 			echo Lettre choisie incorrecte \(ou déjà testée\) \!
 			echo -e "\n$MOT_DEVINE\n"
 			echo "Choisissez une lettre : "

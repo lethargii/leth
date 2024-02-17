@@ -1,0 +1,1 @@
+En utilisant les propriétés de symétrie et d'invariance de la distribution de charges, exprimer le plus précisément possible $\vec{E_{\mathcal{D}}}(M)$, le champ créé en $M$ par le cylindre.

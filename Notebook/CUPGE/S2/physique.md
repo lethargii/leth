@@ -120,4 +120,3 @@ Calculons le gradient de $V_K$.
 $$\begin{align*}\vec{grad}V_K(M)= & \frac{\partial V_K}{\partial r}(M)\vec {u_r} + \frac{1}{r}\frac{\partial V_K}{\partial \theta}(M)\vec {u_\theta} + \frac{1}{r\sin{\theta}}\frac{\partial V_K}{\partial \Phi}(M)\vec {u_\Phi} \\ & = \frac{\partial V_K}{\partial r}(M)\vec{u_r}\\ & = - \frac{q}{4\pi\epsilon_0}\cdot\frac{1}{r^2}\vec{u_r}\\ & = -\vec E(M)
 \end{align*}$$  
 Le champ électrostatique $\vec{E}(M)$ créé par une charge ponctuelle est donc un champ de gradient, i.e. qu'il s'écrit comme le gradient d'une fonction scalaire. Une telle fonction se nomme potentiel électrostatique. On dit que le champ électrostatique dérive d'un potentiel électrostatique.
-$$
