@@ -120,3 +120,14 @@ Calculons le gradient de $V_K$.
 $$\begin{align*}\vec{grad}V_K(M)= & \frac{\partial V_K}{\partial r}(M)\vec {u_r} + \frac{1}{r}\frac{\partial V_K}{\partial \theta}(M)\vec {u_\theta} + \frac{1}{r\sin{\theta}}\frac{\partial V_K}{\partial \Phi}(M)\vec {u_\Phi} \\ & = \frac{\partial V_K}{\partial r}(M)\vec{u_r}\\ & = - \frac{q}{4\pi\epsilon_0}\cdot\frac{1}{r^2}\vec{u_r}\\ & = -\vec E(M)
 \end{align*}$$  
 Le champ électrostatique $\vec{E}(M)$ créé par une charge ponctuelle est donc un champ de gradient, i.e. qu'il s'écrit comme le gradient d'une fonction scalaire. Une telle fonction se nomme potentiel électrostatique. On dit que le champ électrostatique dérive d'un potentiel électrostatique.
+
+### Théorème de Gauss
+$\phi=\oint{\vec{E}}(P)\cdot d\vec{S}(P)=\frac{Q_{int}}{\epsilon_{0}}$
+1. Plans de symétrie
+2. Invariances
+3. Gauss
+1. Choisir la surface de Gauss
+2. Calculer $\phi=\oint_{P\in S_{Gauss}}{\vec{E}(P)\cdot d\vec{S}(P)}$
+3. Calculer $Q_{int}$
+4. Utiliser Gauss
+
