@@ -34,18 +34,22 @@ function C(){
 	fi
 	# Initialiser la variable vide CHEMIN
 	CHEMIN=""
+	# Si il n'y a qu'un seul raccourci trouvé, l'utiliser et modifier la variable CHEMIN
+	if [ $(cat $FAV | grep ^"$(echo ${@:1})" | wc -l) -eq 1 ] && [ "$(cat $FAV | grep ^"$(echo ${@:1})")" ]; then
+		CHEMIN="$(cat $FAV | grep ^"$(echo ${@:1})" |  awk -F' -> ' '{print $2}')"
+	fi
 	# Si il y a un raccourci exact trouvé, l'utiliser et modifier la variable CHEMIN
 	if [ $(cat $FAV | grep ^"$(echo ${@:1})"' -> ' | wc -l) -eq 1 ] && [ "$(cat $FAV | grep ^"$(echo ${@:1})"' -> ')" ]; then
-		CHEMIN="$(cat $FAV | grep ^"$(echo ${@:1})"' -> ' | cut -d'>' -f2)"
-	# Si il n'y a qu'un seul raccourci trouvé, l'utiliser et modifier la variable CHEMIN
-	elif [ $(cat $FAV | grep ^"$(echo ${@:1})" | wc -l) -eq 1 ] && [ "$(cat $FAV | grep ^"$(echo ${@:1})")" ]; then
-		CHEMIN="$(cat $FAV | grep ^"$(echo ${@:1})" |  cut -d'>' -f2)"
+		CHEMIN="$(cat $FAV | grep ^"$(echo ${@:1})"' -> ' | awk -F' -> ' '{print $2}')"
+	fi
 	# Si aucun raccourci n'est trouvé renvoyer une erreur et arrêter le programme
-	else
+	if [ -z "$CHEMIN" ] ; then
 		echo Le raccourci \'${@:1}\' n\'existe pas.
 		return 1
 	fi
-	# Si un raccourci est trouvé changer de répertoire
+	# Si un raccourci est trouvé changer de répertoire et afficher le chemin du répertoire
+	#echo Vous êtes maintenant dans le répertoire
+	#echo $CHEMIN
 	cd $CHEMIN
 }
 # Supprimer un favoris de la liste
