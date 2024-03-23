@@ -48,7 +48,7 @@ fi
 # Niveau 3 : détails sur le nombre de fichiers d'un certain type
 if [ $1 ] && [ $1 -ge 3 ] ; then
 	echo "       Il y a :"
-	NB=$(find -mindepth 1 -type f -exec file {} \; | grep -c "Python script")
+	NB=$(grep -c *.py)
 	echo "          - $NB fichier(s) Python"
 	NB=$(find -mindepth 1 -type f -exec file {} \; | grep -c "image")
 	echo "          - $NB fichier(s) image"
