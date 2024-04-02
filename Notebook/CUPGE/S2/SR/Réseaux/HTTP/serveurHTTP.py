@@ -31,20 +31,20 @@ def decode_requete_http(requete) :
 def get_reponse(url_page) :
     """
     >>> a = get_reponse("pages_serveur/fr/pages/index.html")
-    >>> a == "HTTP/1.0 200 OK\\r\\nContent-Type:text/html\\r\\nContent-Length:74\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<body>\\n<h1>Voici index.html !</h1>\\n</body>\\n</html>\\r\\n"
+    >>> a == "HTTP/1.0 200 OK\\r\\nContent-Type:text/html\\r\\nContent-Length:73\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<body>\\n<h1>Voici index.html !</h1>\\n</body>\\n</html>\\r\\n"
     True
     >>> b = get_reponse("page_non_existante")
-    >>> b == "HTTP/1.0 404 NotFound\\r\\nContent-Type:text/html\\r\\nContent-Length:173\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<head><title>404 Not Found</title></head><body>\\n<h1>Page non trouvée !!</h1>\\n<p>L'URL demandée n'a pas été trouvée sur ce serveur.</p></body>\\n</html>\\r\\n"
+    >>> b == "HTTP/1.0 404 NotFound\\r\\nContent-Type:text/html\\r\\nContent-Length:172\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<head><title>404 Not Found</title></head><body>\\n<h1>Page non trouvée !!</h1>\\n<p>L'URL demandée n'a pas été trouvée sur ce serveur.</p></body>\\n</html>\\r\\n"
     True
     """
     try:
         fichier = open(url_page,"r")
         data = fichier.read()
-        reponse = f"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\nContent-Length:{len(data)+1}\r\n\r\n"+data+"\r\n"
+        reponse = f"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\nContent-Length:{len(data)}\r\n\r\n"+data+"\r\n"
     except Exception:
         fichier = open("pages_serveur/page404.html","r")
         data = fichier.read()
-        reponse = f"HTTP/1.0 404 NotFound\r\nContent-Type:text/html\r\nContent-Length:{len(data)+1}\r\n\r\n"+data+"\r\n"
+        reponse = f"HTTP/1.0 404 NotFound\r\nContent-Type:text/html\r\nContent-Length:{len(data)}\r\n\r\n"+data+"\r\n"
     return reponse
 
 def traite_requete(requete) :
