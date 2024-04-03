@@ -8,6 +8,12 @@ ex_requete_http3="GET /autres_pages/toto.html HTTP/1.1\r\nHost: localhost\r\n\r\
 
 def decode_requete_http(requete) :
     """
+    Fonction permettant de décoder une requête HTTP et qui renvoie le chemin de la page demandé et les options de la requête.
+    Arguments :
+        - requete : Une chaine de caractères représentant un requête HTTP
+    Sorties :
+        - page : Une chaine de caractères représentant le chemin de la page demandé dans la requ
+        - options : Un dictionnaire contenant les différentes options de la requête HTTP
     >>> a,b = decode_requete_http(ex_requete_http1)
     >>> a == "/page1.html"
     True
@@ -20,16 +26,25 @@ def decode_requete_http(requete) :
     >>> b["User-Agent"] == "Mozilla/5.0 Firefox/98.0"
     True
     """
+    # Séparation des lignes de la requête HTTP
     requete_decode = requete.split("\r\n")
+    # Définir le chemin de la page
     page = requete_decode[0].split(" ")[1]
+    # Définir les options de la requête HTTP
     options = {}
     for i in range(1, len(requete_decode)-2):
+        # Séparer les clés des valeurs et les ajouter dans le dictionnaire
         option = requete_decode[i].split(": ")
         options[option[0]]=option[1]
     return page,options
 
 def get_reponse(url_page) :
     """
+    Fonction renvoyant la réponse HTTP du serveur en fonction de si la page demandée par le client existe ou pas.
+    Arguments :
+        - url_page :
+    Sorties :
+        - reponse
     >>> a = get_reponse("pages_serveur/fr/pages/index.html")
     >>> a == "HTTP/1.0 200 OK\\r\\nContent-Type:text/html\\r\\nContent-Length:73\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<body>\\n<h1>Voici index.html !</h1>\\n</body>\\n</html>\\r\\n"
     True
