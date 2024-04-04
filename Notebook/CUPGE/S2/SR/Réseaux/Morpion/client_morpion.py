@@ -6,7 +6,7 @@ import socket
 BALISE_NEW_PLAYER = "__player__:"
 BALISE_QUIT = "__quit__"
 # Définir le socket du client
-clientsocket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+clientsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Se connecter au jeu
 clientsocket.sendto(f"{BALISE_NEW_PLAYER}{input('Enter your name :')}".encode("utf-8"),('localhost', 8080))
@@ -21,7 +21,8 @@ def send():
         # Demander un input à l'utilisateur
         message = input()
         # Envoyer le message
-        clientsocket.sendto(message.encode("utf-8"),('localhost', 8080))
+        clientsocket.sendto(message.encode("utf-8"), ('localhost', 8080))
+
 
 def receive():
     """
@@ -32,7 +33,7 @@ def receive():
         # Recevoir un message
         message = clientsocket.recvfrom(65565)[0].decode("utf-8")
         # Si le message reçu est égal à BALISE_QUIT sortir de la boucle
-        if message==BALISE_QUIT:
+        if message == BALISE_QUIT:
             break
         # Sinon afficher le message
         else:
