@@ -192,27 +192,29 @@ def decode_trame(data) :
     Arguments :
         - data : Données au format binaire représentant une trame ethernet.
     """
+    affichage = ""
     # Décoder le trame ethernet
     ethernet = decode_Ethernet(data)
-    print(ethernet[0])
+    affichage += ethernet[0]
     # Décoder la trame IP si la version est IPv4
     if ethernet[1]==2048:
         ip = decode_ip(ethernet[2])
-        print(ip[0])
+        affichage += ip[0]
         # Décoder la trame icmp
         if ip[1]==1:
             icmp=decode_icmp(ip[2])
-            print(icmp)
+            affichage += icmp
         # Décoder la trame tcp
         elif ip[1]==6:
             tcp=decode_tcp(ip[2])
-            print(tcp[0])
-            print(tcp[1])
+            affichage += tcp[0]
+            affichage += f"data : {str(tcp[1])}"
         # Décoder la trame udp
         elif ip[1]==17:
             udp=decode_udp(ip[2])
-            print(udp[0])
-            print(udp[1])
+            affichage += udp[0]
+            affichage += f"data : {str(udp[1])}"
+    print(affichage)
 
 
 if __name__ == "__main__" :

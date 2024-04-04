@@ -11,6 +11,10 @@ adresses = {}
 
 def send_entrance_notification(addr, name):
     """
+    Fonction vérifiant si addr n'est pas déjà présent dans adresses et si c'est le cas, l'ajoute à adresses et annonce à tous les clients qu'un nouvel utilisateur est arrivé sur le chat.
+    Arguments :
+        - addr : Un tuple avec l'adresse IP et le port du client
+        - name : Une chaine de caractères représentant le nom du client
     """
     # Définir adresses comme une variable globale
     global adresses
@@ -24,6 +28,10 @@ def send_entrance_notification(addr, name):
 
 def send_message(addr, message):
     """
+    Fonction envoyant le message d'un client à tous les membres du chat sauf l'expéditeur.
+    Arguments :
+        - addr : Un tuple avec l'adresse IP et le port du client
+        - message : Une chaine de caractères représentant le message du client
     """
     # Définir adresses comme une variable globale
     global adresses
@@ -34,6 +42,9 @@ def send_message(addr, message):
 
 def send_quit_notification(addr):
     """
+    Fonction qui annonce aux membres du chat qu'un client est parti et supprime son adresse du dictionnaire adresses.
+    Arguments :
+        - addr : Un tuple avec l'adresse IP et le port du client
     """
     # Définir adresses comme une variable globale
     global adresses
@@ -48,6 +59,10 @@ def send_quit_notification(addr):
 
 def traite_data(addr, data):
     """
+    Fonction qui appelle send_entrance_notification() si le message commence par BALISE_NEW_NAME, send_message() si le message commence par BALISE_MESSAGE et send_quit_notification() si le message est égal à BALISE_QUIT.
+    Arguments :
+        - addr : Un tuple avec l'adresse IP et le port du client
+        - data : Une chaine de caractères représentant les données envoyées par le client
     """
     # Si les données correspondent à BALISE_QUIT lancer la fonction send_quit_notification()
     if data==BALISE_QUIT:

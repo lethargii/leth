@@ -1,6 +1,8 @@
+#Importer les modules doctest et socket
 import doctest
 import socket
 
+# Définir les variables des balises utilisées
 BALISE_NEW_PLAYER = "__player__:"
 BALISE_QUIT = "__quit__"
 
@@ -268,38 +270,56 @@ def fin_de_partie(serveursocket, joueurs):
     serveursocket.sendto("__quit__".encode('utf-8'),joueurs[0][1])
     serveursocket.sendto("__quit__".encode('utf-8'),joueurs[1][1])
 
+def coup_valable(prochain_coup, grille):
+    if len(prochain_coup)>=2 and type(prochain_coup[0])==str and prochain_coup[1:].isnumeric() and peut_jouer(grille,prochain_coup):
+        return True
+    return False
+
+def prochain_coup(serveursocket, joueurs, joueur_courant):
+    demander_coup(serveursocket, joueurs, joueur_courant)
+    return recv_coup(serveursocket, joueurs, joueur_courant)
+
 def boucle_principale() :
+    """
+    """
+    # Créer le socket du serveur et le lier à l'adresse de rebouclage locale et au port 8080
     serveursocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     serveursocket.bind(('localhost', 8080))
+    # Définir les noms et les adresses IP des joueurs
     joueurs = (connection_joueur(serveursocket), connection_joueur(serveursocket))
+    # Envoyer un message de début de partie
     debut_de_partie(serveursocket, joueurs)
-    grille=generer_grille_vide(3,3)
+    # Initialiser la grille
+    grille=generer_grille_vide(15,15)
+    # Initialisation de joueur_courant à 0
     joueur_courant=0
+    # Rester dans la boucle de jeu tant que la grille n'est pas pleine
     while not grille_pleine(grille):
+        # Afficher la grille
         envoyer_grille(serveursocket,grille, joueurs)
+        # Annoncer le tour suivant
         prochain_tour(serveursocket, joueurs, joueur_courant)
-        demander_coup(serveursocket,joueurs, joueur_courant)
-        prochain_coup = recv_coup(serveursocket,joueurs, joueur_courant)
-        coup_valable=False
-        if len(prochain_coup)>=2 and type(prochain_coup[0])==str and prochain_coup[1:].isnumeric():
-            if peut_jouer(grille,prochain_coup):
-                coup_valable=True
-        while not coup_valable:
+        # Demander le coup
+        coup = prochain_coup(serveursocket,joueurs, joueur_courant)
+        # Tant que le coup n'est pas valable, afficher une erreur et le redemander
+        while not coup_valable(coup, grille):
             mauvais_coup(serveursocket,joueurs, joueur_courant)
-            demander_coup(serveursocket,joueurs, joueur_courant)
-            prochain_coup = recv_coup(serveursocket,joueurs, joueur_courant)
-            if len(prochain_coup)>=2 and type(prochain_coup[0])==str and prochain_coup[1:].isnumeric():
-                if peut_jouer(grille,prochain_coup):
-                    coup_valable=True
-        joue(grille,prochain_coup,joueur_courant+1)
+            coup = prochain_coup(serveursocket,joueurs, joueur_courant)
+        # Jouer le coup du joueur courant
+        joue(grille,coup,joueur_courant+1)
+        # Si le joueur courant a gagné la partie, l'afficher et terminer la partie
         if a_gagne(grille,joueur_courant+1):
-            partie_gagnee(serveursocket, joueurs, joueur_courant)# print("Le joueur "+str(joueur_courant+1)+" a gagné.")
+            partie_gagnee(serveursocket, joueurs, joueur_courant)
             fin_de_partie(serveursocket, joueurs)
             return
+        # Changer le joueur courant
         joueur_courant=(joueur_courant+1)%2
+    # Si la grille est pleine déclarer le match nul et terminer la partie
     match_nul(serveursocket, joueurs)
     fin_de_partie(serveursocket, joueurs)
 
 if __name__ == "__main__" :
+    # Doctest
     doctest.testmod()
+    # Lancer le jeu
     boucle_principale()
