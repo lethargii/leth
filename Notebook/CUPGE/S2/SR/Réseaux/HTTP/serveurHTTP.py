@@ -1,5 +1,6 @@
 import socket
 import doctest
+import os
 
 ex_requete_http1="GET /page1.html HTTP/1.1\r\nHost: localhost\r\nAccept-Language: fr-FR,en;q=0.3\r\nUser-Agent: Mozilla/5.0 Firefox/98.0\r\n\r\n"
 
@@ -49,7 +50,7 @@ def get_reponse(url_page) :
     >>> a == "HTTP/1.0 200 OK\\r\\nContent-Type:text/html\\r\\nContent-Length:73\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<body>\\n<h1>Voici index.html !</h1>\\n</body>\\n</html>\\r\\n"
     True
     >>> b = get_reponse("page_non_existante")
-    >>> b == "HTTP/1.0 404 NotFound\\r\\nContent-Type:text/html\\r\\nContent-Length:172\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<head><title>404 Not Found</title></head><body>\\n<h1>Page non trouvée !!</h1>\\n<p>L'URL demandée n'a pas été trouvée sur ce serveur.</p></body>\\n</html>\\r\\n"
+    >>> b == "HTTP/1.0 404 NotFound\\r\\nContent-Type:text/html\\r\\nContent-Length:177\\r\\n\\r\\n<!DOCTYPE html>\\n<html>\\n<head><title>404 Not Found</title></head><body>\\n<h1>Page non trouvée !!</h1>\\n<p>L'URL demandée n'a pas été trouvée sur ce serveur.</p></body>\\n</html>\\r\\n"
     True
     """
     # Essayer de trouver la page demandée par le client, envoyer le code 200 OK et le contenu de la page HTML
@@ -57,15 +58,17 @@ def get_reponse(url_page) :
         # Ouvrir la page demandée par le client
         fichier = open(url_page,"r")
         data = fichier.read()
+        longueur = os.path.getsize(url_page)
         # Mise en forme de la réponse HTTP
-        reponse = f"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\nContent-Length:{len(data)}\r\n\r\n"+data+"\r\n"
+        reponse = f"HTTP/1.0 200 OK\r\nContent-Type:text/html\r\nContent-Length:{longueur}\r\n\r\n"+data+"\r\n"
     # Autrement, envoyer le code 404 NotFound et le contenu de la page page404.html
     except Exception:
         # Ouvrir la page page404.html
         fichier = open("pages_serveur/page404.html","r")
         data = fichier.read()
+        longueur = os.path.getsize("pages_serveur/page404.html")
         # Mise en forme de la réponse HTTP
-        reponse = f"HTTP/1.0 404 NotFound\r\nContent-Type:text/html\r\nContent-Length:{len(data)}\r\n\r\n"+data+"\r\n"
+        reponse = f"HTTP/1.0 404 NotFound\r\nContent-Type:text/html\r\nContent-Length:{longueur}\r\n\r\n"+data+"\r\n"
     return reponse
 
 def traite_requete(requete) :
