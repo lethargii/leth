@@ -76,7 +76,7 @@ def joue(grille, position, joueur):
     grille[len(grille)-int(position[1:])-1][ord(position[0])-65] = joueur
 
 
-def a_gagne_vert(grille, joueur):
+def a_gagne_vert(grille, joueur, nb):
     """
     Fonction vérifiant si le joueur joueur a aligné verticalement 5 jetons dans la grille grille.
     Arguments :
@@ -88,10 +88,10 @@ def a_gagne_vert(grille, joueur):
     compteur = 0
     for j in range(nb_col):
         i = 0
-        while i < nb_lig-4+compteur:
+        while i < nb_lig-(nb-1)+compteur:
             if grille[i][j] == joueur:
                 compteur += 1
-                if compteur == 5:
+                if compteur == nb:
                     return True
             else:
                 compteur = 0
@@ -99,7 +99,7 @@ def a_gagne_vert(grille, joueur):
     return False
 
 
-def a_gagne_hor(grille, joueur):
+def a_gagne_hor(grille, joueur, nb):
     """
     Fonction vérifiant si le joueur joueur a aligné horizontalement 5 jetons dans la grille grille.
     Arguments :
@@ -111,10 +111,10 @@ def a_gagne_hor(grille, joueur):
     compteur = 0
     for i in range(nb_lig):
         j = 0
-        while j < nb_col-4+compteur:
+        while j < nb_col-(nb-1)+compteur:
             if grille[i][j] == joueur:
                 compteur += 1
-                if compteur == 5:
+                if compteur == nb:
                     return True
             else:
                 compteur = 0
@@ -122,7 +122,7 @@ def a_gagne_hor(grille, joueur):
     return False
 
 
-def a_gagne_diag1(grille, joueur):
+def a_gagne_diag1(grille, joueur, nb):
     """
     Fonction vérifiant si le joueur joueur a aligné 5 jetons dans une diagonale montante de la grille grille.
     Arguments :
@@ -133,12 +133,12 @@ def a_gagne_diag1(grille, joueur):
     nb_lig = len(grille)
     compteur = 0
     j = 0
-    while j < nb_col-4:
+    while j < nb_col-(nb-1):
         k = 0
-        while k < nb_lig and k+j < nb_col-4+compteur:
+        while k < nb_lig and k+j < nb_col-(nb-1)+compteur:
             if grille[k][k+j] == joueur:
                 compteur += 1
-                if compteur == 5:
+                if compteur == nb:
                     return True
             else:
                 compteur = 0
@@ -146,12 +146,12 @@ def a_gagne_diag1(grille, joueur):
         j += 1
     compteur = 0
     i = 1
-    while i < nb_lig-4:
+    while i < nb_lig-(nb-1):
         k = 0
-        while k < nb_col and k+i < nb_lig-4+compteur:
+        while k < nb_col and k+i < nb_lig-(nb-1)+compteur:
             if grille[k+i][k] == joueur:
                 compteur += 1
-                if compteur == 5:
+                if compteur == nb:
                     return True
             else:
                 compteur = 0
@@ -160,7 +160,7 @@ def a_gagne_diag1(grille, joueur):
     return False
 
 
-def a_gagne_diag2(grille, joueur):
+def a_gagne_diag2(grille, joueur, nb):
     """
     Fonction vérifiant si le joueur joueur a aligné 5 jetons dans une diagonale descendante de la grille grille.
     Arguments :
@@ -171,12 +171,12 @@ def a_gagne_diag2(grille, joueur):
     nb_lig = len(grille)
     compteur = 0
     j = 0
-    while j < nb_col-4:
+    while j < nb_col-(nb-1):
         k = 0
-        while k < nb_lig and k+j < nb_col-4+compteur:
+        while k < nb_lig and k+j < nb_col-(nb-1)+compteur:
             if grille[nb_lig-1-k][k+j] == joueur:
                 compteur += 1
-                if compteur == 5:
+                if compteur == nb:
                     return True
             else:
                 compteur = 0
@@ -184,12 +184,12 @@ def a_gagne_diag2(grille, joueur):
         j += 1
     compteur = 0
     i = 1
-    while i < nb_lig-4:
+    while i < nb_lig-(nb-1):
         k = 0
-        while k < nb_col and k+i < nb_lig-4+compteur:
+        while k < nb_col and k+i < nb_lig-(nb-1)+compteur:
             if grille[nb_lig-1-k-i][k] == joueur:
                 compteur += 1
-                if compteur == 5:
+                if compteur == nb:
                     return True
             else:
                 compteur = 0
@@ -198,14 +198,14 @@ def a_gagne_diag2(grille, joueur):
     return False
 
 
-def a_gagne(grille, joueur):
+def a_gagne(grille, joueur, nb=5):
     """
     Fonction vérifiant si le joueur joueur a aligné 5 jetons dans la grille grille.
     Arguments :
     - grille : une liste de listes d'entiers
     - joueur : un entier
     """
-    return a_gagne_vert(grille, joueur) or a_gagne_hor(grille, joueur) or a_gagne_diag1(grille, joueur) or a_gagne_diag2(grille, joueur)
+    return a_gagne_vert(grille, joueur, nb) or a_gagne_hor(grille, joueur, nb) or a_gagne_diag1(grille, joueur, nb) or a_gagne_diag2(grille, joueur, nb)
 
 
 def grille_pleine(grille):
@@ -402,7 +402,7 @@ def boucle_principale():
         # Jouer le coup du joueur courant
         joue(grille, coup, joueur_courant+1)
         # Si le joueur courant a gagné la partie, l'afficher et terminer la partie
-        if a_gagne(grille, joueur_courant+1):
+        if a_gagne(grille, joueur_courant+1, 5):
             partie_gagnee(serveursocket, joueurs, joueur_courant, grille)
             fin_de_partie(serveursocket, joueurs)
             return

@@ -20,8 +20,11 @@ def send():
     while True:
         # Demander un input à l'utilisateur
         message = input()
+        if message == "__quit__":
+            break
         # Envoyer le message
-        clientsocket.sendto(message.encode("utf-8"), ('localhost', 8080))
+        if message != "":
+            clientsocket.sendto(message.encode("utf-8"), ('localhost', 8080))
 
 
 def receive():
