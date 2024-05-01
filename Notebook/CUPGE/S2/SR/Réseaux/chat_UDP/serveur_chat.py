@@ -38,7 +38,7 @@ def send_message(addr, message):
     # Envoyer le message à tous les clients sauf l'expéditeur
     for adresse in adresses:
         if adresse!=addr:
-            serveursocket.sendto(f"{adresses[addr]} : {message}".encode('utf-8'),adresse)
+            serveursocket.sendto(f"[{adresses[addr]}] : {message}".encode('utf-8'),adresse)
 
 def send_quit_notification(addr):
     """
@@ -51,7 +51,7 @@ def send_quit_notification(addr):
     # Annoncer à tous les clients sauf l'expéditeur qu'une personne a quitté le chat
     for adresse in adresses:
         if adresse!=addr:
-            serveursocket.sendto(f"***{adresses[addr]}*** a quitté le chat.".encode('utf-8'),adresse)
+            serveursocket.sendto(f"\n***{adresses[addr]}*** a quitté le chat.\n".encode('utf-8'),adresse)
     # Faire quitter le client
     serveursocket.sendto("__quit__".encode('utf-8'),addr)
     # Supprimer son adresse du dictionnaire

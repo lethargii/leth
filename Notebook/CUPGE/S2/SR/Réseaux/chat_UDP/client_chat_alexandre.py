@@ -11,7 +11,7 @@ BALISE_QUIT = "__quit__"
 clientsocket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 
 # Se connecter au chat
-clientsocket.sendto(f"{BALISE_NEW_NAME}{input('Enter your name : ')}".encode("utf-8"),('localhost', 8080))
+clientsocket.sendto(f"{BALISE_NEW_NAME}{input('Enter your name :')}".encode("utf-8"),("10.41.22.192", 5005))
 
 
 def send():
@@ -24,11 +24,11 @@ def send():
         message = input()
         # Si le message reçu est égal à "quit" envoyer comme message BALISE_QUIT au serveur et sortir de la boucle
         if message=="quit":
-            clientsocket.sendto(BALISE_QUIT.encode("utf-8"),('localhost', 8080))
+            clientsocket.sendto(BALISE_QUIT.encode("utf-8"),("10.41.22.192", 5005))
             break
         # Sinon envoyer le message avec BALISE_MESSAGE devant
         else:
-            clientsocket.sendto(f"{BALISE_MESSAGE}{message}".encode("utf-8"),('localhost', 8080))
+            clientsocket.sendto(f"{BALISE_MESSAGE}{message}".encode("utf-8"),("10.41.22.192", 5005))
 
 def receive():
     """

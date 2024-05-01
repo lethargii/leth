@@ -9,7 +9,7 @@ BALISE_QUIT = "__quit__"
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Se connecter au jeu
-clientsocket.sendto(f"{BALISE_NEW_PLAYER}{input('Enter your name :')}".encode("utf-8"),('localhost', 8080))
+clientsocket.sendto(f"{BALISE_NEW_PLAYER}{input('Entrez votre nom : ')}".encode("utf-8"),('localhost', 8080))
 
 
 def send():

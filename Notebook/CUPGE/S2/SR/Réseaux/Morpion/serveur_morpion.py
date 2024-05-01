@@ -35,23 +35,19 @@ def affiche_grille(grille):
     """
     nb_col = len(grille[0])
     nb_lig = len(grille)
-    cases = [' ', 'X', 'O']
-    affichage = ' '+'+-'*nb_col+'+\n'
-    for lig in range(nb_lig):
-        affichage += chr(lig+65)
-        for col in range(nb_col):
-            affichage += '|'+cases[grille[nb_lig-lig-1][col]]
-        affichage += '|\n'
-        affichage += ' '+'+-'*nb_col+'+\n'
+    cases = ['.', 'X', 'O']
     nombres = [str(i) for i in range(1, nb_col+1)]
-    for decimal in range(len(nombres[-1])):
-        affichage += ' '
-        for nombre in nombres:
-            if nombre[decimal:decimal+1] == '':
-                affichage += '  '
-            else:
-                affichage += ' '+nombre[decimal:decimal+1]
+    affichage = ""
+    for lig in range(nb_lig):
+        affichage += " "*(len(str(nombres[-1]))-len(str(lig)))+f"{lig}|"
+        for col in range(nb_col):
+            affichage += ' '+cases[grille[nb_lig-lig-1][col]]
         affichage += '\n'
+    affichage += ' '*(len(str(nombres[-1]))+1)+"-"*nb_col*2+"\n"
+    affichage += ' '*(len(str(nombres[-1]))+1)
+    for col in range(nb_col):
+        affichage += ' '+chr(col+ord("A"))
+    affichage += "\n"
     return affichage
 
 
@@ -62,9 +58,9 @@ def peut_jouer(grille, position):
     - grille : une liste de listes d'entiers
     - position : une chaine de caractère au format LN où L est une lettre entre A et T compris et N est un entier entre 1 et 20 compris
     """
-    if (not ord(position[0])-65 in range(len(grille))) or (not int(position[1:])-1 in range(len(grille[0]))) :
+    if (not ord(position[0])-65 in range(len(grille[0]))) or (not int(position[1:])-1 in range(len(grille))) :
         return False
-    if grille[len(grille)-ord(position[0])+64][int(position[1:])-1] == 0:
+    if grille[len(grille)-int(position[1:])-1][ord(position[0])-65] == 0:
         return True
     return False
 
@@ -77,7 +73,7 @@ def joue(grille, position, joueur):
     - position : une chaine de caractère au format LN où L est une lettre entre A et T compris et N est un entier entre 1 et 20 compris
     - joueur : un entier
     """
-    grille[len(grille)-ord(position[0])+64][int(position[1:])-1] = joueur
+    grille[len(grille)-int(position[1:])-1][ord(position[0])-65] = joueur
 
 
 def a_gagne_vert(grille, joueur):
@@ -269,7 +265,7 @@ def demander_coup(serveursocket, joueurs, joueur_courant):
         - joueurs : Un tuple contenant les noms et adresses des joueurs
         - joueur_courant : Un entier représentant le joueur courant
     """
-    serveursocket.sendto("Dans quelle case voulez-vous placer votre pion ?".encode('utf-8'), joueurs[joueur_courant][1])
+    serveursocket.sendto("Entrez votre prochain coup :".encode('utf-8'), joueurs[joueur_courant][1])
 
 
 def mauvais_coup(serveursocket, joueurs, joueur_courant):
@@ -280,7 +276,7 @@ def mauvais_coup(serveursocket, joueurs, joueur_courant):
         - joueurs : Un tuple contenant les noms et adresses des joueurs
         - joueur_courant : Un entier représentant le joueur courant
     """
-    serveursocket.sendto("Vous ne pouvez pas jouer ce coup.".encode('utf-8'), joueurs[joueur_courant][1])
+    serveursocket.sendto("Coup Invalide !".encode('utf-8'), joueurs[joueur_courant][1])
 
 
 def recv_coup(serveursocket, joueurs, joueur_courant):
@@ -293,7 +289,7 @@ def recv_coup(serveursocket, joueurs, joueur_courant):
     """
     data, joueur = serveursocket.recvfrom(1024)
     while joueur != joueurs[joueur_courant][1] or (joueur not in joueurs[0] and joueur not in joueurs[1]):
-        serveursocket.sendto("Ce n'est pas à votre tour de jouer.".encode('utf-8'), joueurs[(joueur_courant+1)%2][1])
+        serveursocket.sendto("Ce n'est pas à vous de jouer !".encode('utf-8'), joueurs[(joueur_courant+1)%2][1])
         data, joueur = serveursocket.recvfrom(1024)
     return data.decode('utf-8')
 
@@ -321,7 +317,7 @@ def prochain_tour(serveursocket, joueurs, joueur_courant):
     serveursocket.sendto(f"C\'est au tour de {joueurs[joueur_courant][0]} !".encode('utf-8'), joueurs[1][1])
 
 
-def partie_gagnee(serveursocket, joueurs, joueur_courant):
+def partie_gagnee(serveursocket, joueurs, joueur_courant, grille):
     """
     Fonction annonçant aux joueurs que le joueur courant a remporté la partie.
     Arguments :
@@ -329,8 +325,9 @@ def partie_gagnee(serveursocket, joueurs, joueur_courant):
         - joueurs : Un tuple contenant les noms et adresses des joueurs
         - joueur_courant : Un entier représentant le joueur courant
     """
-    serveursocket.sendto(f"{joueurs[joueur_courant][0]} a gagné !".encode('utf-8'), joueurs[0][1])
-    serveursocket.sendto(f"{joueurs[joueur_courant][0]} a gagné !".encode('utf-8'), joueurs[1][1])
+    envoyer_grille(serveursocket, grille, joueurs)
+    serveursocket.sendto(f"{joueurs[joueur_courant][0]} remporte la partie !\nLe jeu est terminé ! (Appuyez sur Ctrl+C pour quitter)".encode('utf-8'), joueurs[0][1])
+    serveursocket.sendto(f"{joueurs[joueur_courant][0]} remporte la partie !\nLe jeu est terminé ! (Appuyez sur Ctrl+C pour quitter)".encode('utf-8'), joueurs[1][1])
 
 
 def match_nul(serveursocket, joueurs):
@@ -388,8 +385,6 @@ def boucle_principale():
     serveursocket.bind(('localhost', 8080))
     # Définir les noms et les adresses IP des joueurs
     joueurs = (connection_joueur(serveursocket), connection_joueur(serveursocket))
-    # Envoyer un message de début de partie
-    debut_de_partie(serveursocket, joueurs)
     # Initialiser la grille
     grille = generer_grille_vide(15, 15)
     # Initialisation de joueur_courant à 0
@@ -398,19 +393,17 @@ def boucle_principale():
     while not grille_pleine(grille):
         # Afficher la grille
         envoyer_grille(serveursocket, grille, joueurs)
-        # Annoncer le tour suivant
-        prochain_tour(serveursocket, joueurs, joueur_courant)
         # Demander le coup
         coup = prochain_coup(serveursocket, joueurs, joueur_courant)
         # Tant que le coup n'est pas valable, afficher une erreur et le redemander
         while not coup_valable(coup, grille):
             mauvais_coup(serveursocket, joueurs, joueur_courant)
-            coup = prochain_coup(serveursocket, joueurs, joueur_courant)
+            coup = recv_coup(serveursocket, joueurs, joueur_courant)
         # Jouer le coup du joueur courant
         joue(grille, coup, joueur_courant+1)
         # Si le joueur courant a gagné la partie, l'afficher et terminer la partie
         if a_gagne(grille, joueur_courant+1):
-            partie_gagnee(serveursocket, joueurs, joueur_courant)
+            partie_gagnee(serveursocket, joueurs, joueur_courant, grille)
             fin_de_partie(serveursocket, joueurs)
             return
         # Changer le joueur courant
