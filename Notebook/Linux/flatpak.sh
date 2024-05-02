@@ -1,19 +1,26 @@
-flatpak install ca.littlesvr.asunder org.prismlauncher.PrismLauncher com.discordapp.Discord com.github.Matoking.protontricks com.github.tchx84.Flatseal com.github.ztefn.haguichi com.heroicgameslauncher.hgl com.obsproject.Studio com.parsecgaming.parsec com.prusa3d.PrusaSlicer com.raggesilver.BlackBox com.usebottles.bottles com.vscodium.codium de.haeckerfelix.Shortwave info.cemu.Cemu io.github.sameboy.SameBoy io.mgba.mGBA md.obsidian.Obsidian net.davidotek.pupgui2 net.kuribo64.melonDS net.rpcs3.RPCS3 net.sourceforge.Klavaro net.supertuxkart.SuperTuxKart org.DolphinEmu.dolphin-emu org.audacityteam.Audacity org.blender.Blender org.freecadweb.FreeCAD org.inkscape.Inkscape org.kde.kdenlive org.libretro.RetroArch org.openmw.OpenMW org.openrgb.OpenRGB org.ryujinx.Ryujinx org.videolan.VLC org.yuzu_emu.yuzu org.citra_emu.citra io.missioncenter.MissionCenter com.valvesoftware.Steam org.gnome.Calculator ro.go.hmlendea.DL-Desktop org.mozilla.Thunderbird org.gnome.gThumb one.ablaze.floorp org.godotengine.GodotSharp org.kde.krita org.onlyoffice.desktopeditors org.musicbrainz.Picard org.gnome.Logs com.system76.Popsicle org.gnome.seahorse.Application org.gnome.DejaDup org.vinegarhq.Vinegar org.gnome.Lollypop org.gnome.Brasero
-sudo flatpak override --env=GTK_THEME=Adwaita:dark org.audacityteam.Audacity
-sudo flatpak override --env=GTK_THEME=Adwaita:dark info.cemu.Cemu
-sudo flatpak override --env=GTK_THEME=Adwaita:dark org.DolphinEmu.dolphin-emu
-sudo flatpak override --env=GTK_THEME=Adwaita:dark net.sourceforge.Klavaro
-sudo flatpak override --env=QT_STYLE_OVERRIDE=kvantum net.kuribo64.melonDS
-sudo flatpak override --env=QT_STYLE_OVERRIDE=kvantum io.mgba.mGBA
-sudo flatpak override --env=QT_STYLE_OVERRIDE=kvantum org.openmw.OpenMW
-sudo flatpak override --env=QT_STYLE_OVERRIDE=kvantum org.openrgb.OpenRGB
-sudo flatpak override --env=GTK_THEME=Adwaita:dark com.github.Matoking.protontricks
-sudo flatpak override --env=PRUSA_SLICER_DARK_THEME=true com.prusa3d.PrusaSlicer
-sudo flatpak override --env=GTK_THEME=Adwaita:dark org.ryujinx.Ryujinx
-sudo flatpak override --env=GTK_THEME=Adwaita:dark com.vscodium.codium
-sudo flatpak override --env=GTK_THEME=Adwaita-dark org.gnome.Music
-sudo flatpak override --env=GTK_THEME=Adwaita-dark org.gnome.Calculator
-sudo flatpak override --env=GTK_THEME=Adwaita-dark com.github.tchx84.Flatseal
-sudo flatpak override --env=GTK_THEME=Adwaita-dark com.usebottles.bottles
-sudo flatpak override --env=GTK_THEME=Adwaita-dark de.haeckerfelix.Shortwave
-sudo flatpak override --env=GTK_THEME=Adwaita-dark io.missioncenter.MissionCenter
+#!/bin/bash
+for app in $(flatpak list --columns=application --app); do
+	if ! $(grep -Fxq "$app" flatpak-apps); then
+		flatpak uninstall --user --noninteractive $app
+	fi
+done
+for app in $(cat flatpak-apps); do
+	if [ $app = "[Apps]" ]; then
+		category="[Apps]"
+	elif [ $app = "[GTK3]" ]; then
+		category="[GTK3]"
+	elif [ $app = "[GTK4]" ]; then
+		category="[GTK4]"
+	else
+		if [ $category="[Apps]" ]; then
+			flatpak install --user --noninteractive $app
+		elif [ $category="[GTK3]" ]; then
+			flatpak override --user --env=GTK_THEME=Adwaita:dark $app
+		elif [ $category="[GTK4]" ]; then
+			flatpak override --user --env=GTK_THEME=Adwaita-dark $app
+		fi
+	fi
+done
+flatpak override --user --env=QT_STYLE_OVERRIDE=kvantum
+flatpak override --user --env=PRUSA_SLICER_DARK_THEME=true
+flatpak update --user --noninteractive

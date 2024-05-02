@@ -1,0 +1,17 @@
+[Apps]
+com.discordapp.Discord
+com.raggesilver.BlackBox
+com.valvesoftware.Steam
+io.neovim.nvim
+one.ablaze.floorp
+org.gnome.seahorse.Application
+org.mozilla.Thunderbird
+net.sourceforge.Klavaro
+ro.go.hmlendea.DL-Desktop
+io.freetubeapp.FreeTube
+com.github.Matoking.protontricks
+com.usebottles.bottles
+org.onlyoffice.desktopeditors
+[GTK3]
+[GTK4]
+org.gnome.seahorse.Application
