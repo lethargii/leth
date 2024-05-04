@@ -1,4 +1,5 @@
 #!/bin/bash
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 for app in $(flatpak list --columns=application --app); do
 	if ! $(grep -Fxq "$app" flatpak-apps); then
 		flatpak uninstall --user --noninteractive $app

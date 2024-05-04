@@ -12,6 +12,7 @@ io.freetubeapp.FreeTube
 com.github.Matoking.protontricks
 com.usebottles.bottles
 org.onlyoffice.desktopeditors
+com.logseq.Logseq
 [GTK3]
 [GTK4]
 org.gnome.seahorse.Application
