@@ -1,2 +1,7 @@
-- [ ] Godot, Harmonoid and TES3MP flatpak
-- [ ] Veloren, GB studio
+- TP Physique, maths, SR
+- Recopier maths dans locseq
+- Enlever fichiers autres que textes de leth
+- Coder un peu le jeu
+- Contrats EDF et eau
+- APL
+- Appeler Lenovo

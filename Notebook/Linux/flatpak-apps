@@ -13,6 +13,7 @@ com.github.Matoking.protontricks
 com.usebottles.bottles
 org.onlyoffice.desktopeditors
 org.gnome.gThumb
+com.logseq.Logseq
 [GTK3]
 [GTK4]
 org.gnome.seahorse.Application

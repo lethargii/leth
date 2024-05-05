@@ -58,7 +58,7 @@ def peut_jouer(grille, position):
     - grille : une liste de listes d'entiers
     - position : une chaine de caractère au format LN où L est une lettre entre A et T compris et N est un entier entre 1 et 20 compris
     """
-    if (not ord(position[0])-65 in range(len(grille[0]))) or (not int(position[1:])-1 in range(len(grille))) :
+    if (not ord(position[0])-65 in range(len(grille[0]))) or (not int(position[1:]) in range(len(grille))) :
         return False
     if grille[len(grille)-int(position[1:])-1][ord(position[0])-65] == 0:
         return True
