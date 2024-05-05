@@ -20,3 +20,4 @@ sudo apt upgrade
 bash flatpak.sh
 git config --global user.email "l.sevault@hotmail.com"
 git config --global user.name "lethargii"
+cp config.fish /home/lethargii/.config/fish/config.fish
