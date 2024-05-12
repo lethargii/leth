@@ -4,6 +4,7 @@ fish
 sl
 lolcat
 cowsay
+python3-pip
 [Uninstall]
 firefox
 thunderbird

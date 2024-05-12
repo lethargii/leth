@@ -1,5 +1,7 @@
 #!/bin/bash
 sudo apt update
+Install=''
+Uninstall=''
 for app in $(cat mint-apps); do
 	if [ "$app" = "[Install]" ]; then
 		category="[Install]"
@@ -7,17 +9,18 @@ for app in $(cat mint-apps); do
 		category="[Uninstall]"
 	else
 		if [ $category = "[Install]" ]; then
-			echo $app
-			sudo apt install $app
+			Install="$Install $app"
 		elif [ $category = "[Uninstall]" ]; then
-			echo $app
-			sudo apt remove --purge "$app*"
+			Uninstall="$Uninstall $app"'*'
 		fi
 	fi
 done
-sudo apt autoremove
-sudo apt upgrade
+sudo apt install -qq $Install
+sudo apt remove -qq --purge $Uninstall
+sudo apt autoremove -qq
+sudo apt upgrade -qq
 bash flatpak.sh
 git config --global user.email "l.sevault@hotmail.com"
 git config --global user.name "lethargii"
 cp config.fish /home/lethargii/.config/fish/config.fish
+pip install --user numpy matplotlib
