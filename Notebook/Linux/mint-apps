@@ -5,6 +5,7 @@ sl
 lolcat
 cowsay
 python3-pip
+gparted
 [Uninstall]
 firefox
 thunderbird
