@@ -30,8 +30,12 @@ for app in $(cat flatpak-apps); do
 	fi
 done
 flatpak install --user --noninteractive $Apps
-flatpak override --user --env=GTK_THEME=Adwaita:dark $GTK3
-flatpak override --user --env=GTK_THEME=Adwaita-dark $GTK4
+if ! [ "$GTK3"="" ]; then
+	flatpak override --user --env=GTK_THEME=Adwaita:dark $GTK3
+fi
+if ! [ "$GTK4"="" ]; then
+	flatpak override --user --env=GTK_THEME=Adwaita-dark $GTK4
+fi
 flatpak override --user --env=QT_STYLE_OVERRIDE=kvantum
 flatpak override --user --env=PRUSA_SLICER_DARK_THEME=true
 flatpak update --user --noninteractive

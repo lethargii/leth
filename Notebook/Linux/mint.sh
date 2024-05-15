@@ -22,6 +22,7 @@ sudo apt upgrade -qq
 bash flatpak.sh
 git config --global user.email "l.sevault@hotmail.com"
 git config --global user.name "lethargii"
+git config --global pull.rebase false
 cp config.fish /home/lethargii/.config/fish/config.fish
 pip install --user numpy matplotlib
 wget https://invent.kde.org/plasma/plasma-workspace-wallpapers/-/raw/master/Altai/contents/images/5120x2880.png

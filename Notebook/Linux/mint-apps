@@ -8,6 +8,7 @@ python3-pip
 octave
 pandoc
 lightdm-gtk-greeter
+gparted
 [Uninstall]
 firefox
 thunderbird
