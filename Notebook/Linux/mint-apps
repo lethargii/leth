@@ -5,6 +5,9 @@ sl
 lolcat
 cowsay
 python3-pip
+octave
+pandoc
+lightdm-gtk-greeter
 [Uninstall]
 firefox
 thunderbird
