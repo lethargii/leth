@@ -1,11 +1,16 @@
 [Install]
+cinnamon
 epiphany-browser
 fish
 sl
 lolcat
 cowsay
 python3-pip
+python3-numpy
+python3-matplotlib
 gparted
+texlive
+git
 [Uninstall]
 firefox
 thunderbird
