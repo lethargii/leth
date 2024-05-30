@@ -8,6 +8,9 @@ cowsay
 python3-pip
 python3-numpy
 python3-matplotlib
+octave
+pandoc
+lightdm-gtk-greeter
 gparted
 texlive
 git

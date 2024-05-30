@@ -22,6 +22,13 @@ sudo apt upgrade -qq
 bash flatpak.sh
 git config --global user.email "l.sevault@hotmail.com"
 git config --global user.name "lethargii"
+<<<<<<< HEAD
 cp config.fish $HOME/.config/fish/config.fish
+=======
+git config --global pull.rebase false
+mkdir /home/lethargii/.config/fish
+cp config.fish /home/lethargii/.config/fish/config.fish
+pip install --user numpy matplotlib
+>>>>>>> 8c34961823ea924cd85e66a4730a451f904f7659
 wget https://invent.kde.org/plasma/plasma-workspace-wallpapers/-/raw/master/Altai/contents/images/5120x2880.png
 sudo mv 5120x2880.png /usr/share/backgrounds/linuxmint/Altai.png

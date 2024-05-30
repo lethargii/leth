@@ -18,6 +18,8 @@ org.gnome.Calculator
 com.heroicgameslauncher.hgl
 net.davidotek.pupgui2
 org.gnome.FileRoller
+org.kde.krita
+org.kde.kdenlive
 [GTK3]
 [GTK4]
 org.gnome.seahorse.Application
