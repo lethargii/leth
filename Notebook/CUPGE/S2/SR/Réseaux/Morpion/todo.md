@@ -1,3 +1,0 @@
-1 - client ne s'arrête pas...
-2 - commentaire et docstrings
-3 - notice à faire

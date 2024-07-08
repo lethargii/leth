@@ -53,10 +53,12 @@ def affiche_grille(grille):
 
 def peut_jouer(grille, position):
     """
-    Fonction renvoyant True si un joueur peut jouer dans la case position et False autrement.
+    Fonction renvoyant True si un joueur peut jouer dans la case position et
+    False autrement.
     Arguments :
     - grille : une liste de listes d'entiers
-    - position : une chaine de caractère au format LN où L est une lettre entre A et T compris et N est un entier entre 1 et 20 compris
+    - position : une chaine de caractère au format LN où L est une lettre
+    entre A et T compris et N est un entier entre 1 et 20 compris
     """
     if (not ord(position[0])-65 in range(len(grille[0]))) or (not int(position[1:]) in range(len(grille))) :
         return False
@@ -67,10 +69,12 @@ def peut_jouer(grille, position):
 
 def joue(grille, position, joueur):
     """
-    Fonction modifiant la grille grille en ajoutant un jeton du joueur joueur dans la colonne colonne.
+    Fonction modifiant la grille grille en ajoutant un jeton du joueur joueur
+    dans la colonne colonne.
     Arguments :
     - grille : une liste de listes d'entiers
-    - position : une chaine de caractère au format LN où L est une lettre entre A et T compris et N est un entier entre 1 et 20 compris
+    - position : une chaine de caractère au format LN où L est une lettre entre
+    A et T compris et N est un entier entre 1 et 20 compris
     - joueur : un entier
     """
     grille[len(grille)-int(position[1:])-1][ord(position[0])-65] = joueur
@@ -101,7 +105,8 @@ def a_gagne_vert(grille, joueur, nb):
 
 def a_gagne_hor(grille, joueur, nb):
     """
-    Fonction vérifiant si le joueur joueur a aligné horizontalement 5 jetons dans la grille grille.
+    Fonction vérifiant si le joueur joueur a aligné horizontalement 5 jetons
+    dans la grille grille.
     Arguments :
     - grille : une liste de listes d'entiers
     - joueur : un entier
@@ -124,7 +129,8 @@ def a_gagne_hor(grille, joueur, nb):
 
 def a_gagne_diag1(grille, joueur, nb):
     """
-    Fonction vérifiant si le joueur joueur a aligné 5 jetons dans une diagonale montante de la grille grille.
+    Fonction vérifiant si le joueur joueur a aligné 5 jetons dans une
+    diagonale montante de la grille grille.
     Arguments :
     - grille : une liste de listes d'entiers
     - joueur : un entier
@@ -162,7 +168,8 @@ def a_gagne_diag1(grille, joueur, nb):
 
 def a_gagne_diag2(grille, joueur, nb):
     """
-    Fonction vérifiant si le joueur joueur a aligné 5 jetons dans une diagonale descendante de la grille grille.
+    Fonction vérifiant si le joueur joueur a aligné 5 jetons dans une diagonale
+    descendante de la grille grille.
     Arguments :
     - grille : une liste de listes d'entiers
     - joueur : un entier
@@ -200,7 +207,8 @@ def a_gagne_diag2(grille, joueur, nb):
 
 def a_gagne(grille, joueur, nb=5):
     """
-    Fonction vérifiant si le joueur joueur a aligné 5 jetons dans la grille grille.
+    Fonction vérifiant si le joueur joueur a aligné 5 jetons dans la grille
+    grille.
     Arguments :
     - grille : une liste de listes d'entiers
     - joueur : un entier
@@ -270,7 +278,8 @@ def demander_coup(serveursocket, joueurs, joueur_courant):
 
 def mauvais_coup(serveursocket, joueurs, joueur_courant):
     """
-    Fonction annonçant au joueur qu'il ne peut pas effectuer le coup qu'il a rentré.
+    Fonction annonçant au joueur qu'il ne peut pas effectuer le coup qu'il a
+    rentré.
     Arguments :
         - serveursocket : Le socket du serveur
         - joueurs : Un tuple contenant les noms et adresses des joueurs
@@ -356,7 +365,8 @@ def coup_valable(prochain_coup, grille):
     """
     Fonction vérifiant si le coup donné par l'utilisateur est valable.
     Arguments :
-        - prochain_coup : Une chaine de caractères représentant le coup de l'utilisateur
+        - prochain_coup : Une chaine de caractères représentant le coup de
+        l'utilisateur
         - grille : Un tableau représentant une grille de morpion
     """
     if len(prochain_coup) >= 2 and type(prochain_coup[0]) is str and prochain_coup[1:].isnumeric() and peut_jouer(grille, prochain_coup):

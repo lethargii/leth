@@ -38,4 +38,5 @@ if ! [ "$GTK4"="" ]; then
 fi
 flatpak override --user --env=QT_STYLE_OVERRIDE=kvantum
 flatpak override --user --env=PRUSA_SLICER_DARK_THEME=true
+flatpak override --user --env=FLATPAK_ENABLE_SDK_EXT=dotnet7
 flatpak update --user --noninteractive
