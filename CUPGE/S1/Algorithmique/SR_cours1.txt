@@ -1,0 +1,2 @@
+/home/amartin/Images/chien.png
+../../amartin/Images/chien.png
