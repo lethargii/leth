@@ -4,7 +4,7 @@ import sys
 import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
-from gi.repository import Gtk, Adw, Gdk
+from gi.repository import Gtk, Adw, Gdk, GLib
 
 
 class MainWindow(Gtk.ApplicationWindow):
@@ -14,6 +14,8 @@ class MainWindow(Gtk.ApplicationWindow):
         # paramètres de l'application
         self.set_default_size(1080, 720)
         self.set_title("morpionlan")
+        self.BALISE_COUP = "__coup__:"
+        self.BALISE_NEW_PLAYER = "__player__:"
 
         # css
         style = Gtk.CssProvider()
@@ -89,17 +91,28 @@ class MainWindow(Gtk.ApplicationWindow):
     def name_prompted(self, name):
         self.set_child(self.next)
 
-    def connection_joueur(serveursocket):
+    def start_game(self, name):
+        self.game = Game()
+
+    def connection_joueur(self, serveursocket):
         """
         Fonction attendant de recevoir une demande de connection d'un joueur.
         Arguments :
             - serveursocket : Le socket du serveur
         """
         data, joueur = b'', ('', 0)
-        while data.decode('utf-8')[0:len(BALISE_NEW_PLAYER)] != BALISE_NEW_PLAYER:
+        while data.decode('utf-8')[0:len(self.BALISE_NEW_PLAYER)] != self.BALISE_NEW_PLAYER:
             data, joueur = serveursocket.recvfrom(1024)
-        serveursocket.sendto(f"Bienvenue {data.decode('utf-8')[len(BALISE_NEW_PLAYER):]} !".encode('utf-8'),joueur)
-        return data.decode('utf-8')[len(BALISE_NEW_PLAYER):], joueur
+        serveursocket.sendto(f"Bienvenue {data.decode('utf-8')[len(self.BALISE_NEW_PLAYER):]} !".encode('utf-8'),joueur)
+        return data.decode('utf-8')[len(self.BALISE_NEW_PLAYER):], joueur
+
+    def listen_joueur(self):
+        while True:
+            data = self.serv_socket.recvfrom()
+            if data[0:len(self.BALISE_COUP)] == self.BALISE_COUP:
+                print("coucou")
+
+
 
 
 class MyApp(Adw.Application):
@@ -112,12 +125,59 @@ class MyApp(Adw.Application):
         self.win.present()
 
 
+class Game():
+    def __init__(self, rows=6, columns=7, k=4, gravity=False):
+        self.rows = rows
+        self.columns = columns
+        self.k = k
+        self.gravity = gravity
+        self.grid = [[[0] for i in range(columns)] for j in range(rows)]
+
+    def get_grid(self):
+        return self.grid
+
+    def set_grid(self, joueur, i, j):
+        if self.grid[i][j] == 0:
+            self.grid[i][j] = joueur
+            return True
+        else:
+            return False
+
+    def align(self, joueur, x, y, nb):
+        pos_x = (self.rows-1)/2
+        pos_y = (self.cols-1)/2
+        pos_final_x = (self.rows-1)/2
+        pos_final_y = (self.cols-1)/2
+        pos_x += x*((self.rows-1)/2-min(abs(x), abs(y))*(self.k-1))
+        pos_final_y += y*((self.rows-1)/2-min(abs(x), abs(y))*(self.k-1))
+        if x*y == 0:
+            pos_final_x -= (x + y)*(self.rows-1)/2
+            pos_y -= (x + y)*(self.cols-1)/2
+            pos_x *= abs(y)
+            pos_final_y *= abs(x)
+        else:
+            pos_final_x -= x*(self.rows-1)/2
+            pos_y -= y*(self.cols-1)/2
+        while pos_y != pos_final_y:
+            if pos_x != pos_final_x:
+                pos_x += 1
+            else:
+                pos_y += 1
+            h = 0
+            compteur = 0
+            while h*x + pos_x < self.rows and h*y + pos_y < self.cols:
+                if self.grid[pos_x + h*x][pos_y + h*y] == joueur:
+                    compteur += 1
+                else:
+                    compteur = 0
+                if compteur == 4:
+                    return True
+        return False
+
+
 app = MyApp(application_id="github.lethargii.morpion")
 app.run(sys.argv)
 
-# Définir les variables des balises utilisées
-BALISE_NEW_PLAYER = "__player__:"
-BALISE_QUIT = "__quit__"
 # Définir le socket du client
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -156,11 +216,3 @@ def receive():
         # Sinon afficher le message
     else:
         print(message)
-
-# Création des processus
-# send_thread = threading.Thread(target=send)
-# recv_thread = threading.Thread(target=receive)
-
-# Lancement des processus
-# send_thread.start()
-# recv_thread.start()
