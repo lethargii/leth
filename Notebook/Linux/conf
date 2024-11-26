@@ -6,3 +6,8 @@ if [ -d "/home/lethargii/.local/share/flatpak/exports/bin/" ] ;
   set PATH "/home/lethargii/.local/share/flatpak/exports/bin/:$PATH"
 end
 alias vim=io.neovim.nvim
+[dracut.conf]
+# PUT YOUR CONFIG IN separate files
+# in /etc/dracut.conf.d named "<name>.conf"
+# SEE man dracut.conf(5) for options
+add_drivers+=" nouveau "

@@ -46,3 +46,16 @@ cp config.fish $HOME/.config/fish/config.fish
 pip install --user numpy matplotlib
 wget https://invent.kde.org/plasma/plasma-workspace-wallpapers/-/raw/master/Altai/contents/images/5120x2880.png
 sudo mv 5120x2880.png /usr/share/backgrounds/Altai.png
+gsettings set org.cinnamon.desktop.background picture-uri file:///usr/share/backgrounds/Altai.png
+if [ ! -d /usr/share/icons/Bibata-Modern-Classic ]; then
+	echo Installing Bibata Modern Classic cursor theme...
+	wget https://github.com/ful1e5/Bibata_Cursor/releases/latest/download/Bibata-Modern-Classic.tar.xz
+	tar -xvf Bibata-Modern-Classic.tar.xz
+	sudo mv Bibata-Modern-Classic/ /usr/share/icons/
+	rm Bibata-Modern-Classic.tar.xz
+fi
+if [ -d /boot/grub2 & ! -e /usr/share/grub/themes/tela/theme.txt ]; then
+	git clone https://github.com/vinceliuice/grub2-themes.git
+	sudo grub2-themes/install.sh -t tela
+	rm -rf grub2-themes/
+fi
