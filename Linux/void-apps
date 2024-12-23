@@ -1,0 +1,12 @@
+fish-shell
+cinnamon
+NetworkManager
+lightdm
+xorg
+xorg-server
+git
+xz
+wget
+sl
+make
+python3-pipx
