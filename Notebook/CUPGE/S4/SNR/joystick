@@ -1,0 +1,31 @@
+const int VER = A0;
+const int HOR = A1;
+const int SEL = 7;
+
+void setup()
+{
+  pinMode(VER, INPUT);
+  pinMode(HOR, INPUT);
+  pinMode(SEL, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int posVER = analogRead(VER);
+  int posHOR = analogRead(HOR);
+  int stateSEL = digitalRead(SEL);
+  Serial.println("Position du joystick");
+  Serial.print("Pos : ");
+  Serial.print(posHOR);
+  Serial.print(", ");
+  Serial.println(posVER);
+  Serial.print("Appuyé : ");
+  if(stateSEL == 1){
+    Serial.println("Oui");
+  }
+  else{
+    Serial.println("Non");
+  }
+  delay(1); // delay in between reads for stability
+}
