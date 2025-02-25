@@ -1,0 +1,20 @@
+const int detectPIN;
+detectPIN = 7;
+
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(detectPIN, INPUT);
+}
+
+void loop()
+{
+  int detectState = digitalRead(detectPIN);
+  if(detectState == 1){
+    digitalWrite(LED_BUILTIN, HIGH);
+  }
+  else{
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+  delay(1); // delay in between reads for stability
+}
