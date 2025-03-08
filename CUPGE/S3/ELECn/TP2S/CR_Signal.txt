@@ -1,0 +1,21 @@
+1,2- On charge et affiche les signaux, ca ressemble à ce dont on pourrais s'attendre, graphiquement on voit que le signal parasympatique correspond à un cœur qui bat doucement, et au contraire le sympatique correspond à un cœur qui bat a intervalles très courtes.
+
+3- on affiche les deux spectres sur une demie-échelle 
+fréquentielle.
+cependant c'est difficile de voir a l'oeuil nu une grande différence.
+donc on affiche avec une echelle logarithmique, c'est un peu plus clair.
+Au repos, on voit une prédominance des basses fréquences, tandis que pendant l'effort, le signal devient plus bruité, avec une activité à des fréquences plus élevées.
+
+4.1- on affiche avec le seuil calculée (j'ai utilisé 0.60 max(ECG) comme l'exemple), on remarque que le seuil est plus important pour le sympatique que pour le parasympatique
+
+4.2- on met à 1 toutes les valeurs supérieures au seuil choisi et à 0 les autres.
+ca nous permet de voir plus facillement la distance RR
+
+4.3- on met des petites étoiles sur le maximum des pics R.
+on remarque qu'il y en a plus pour le sympatique et que le coeur bat danc plus vite.
+
+4.4- on calcule la série temporelle RR, on retrouve bien que le signal parasympatique à un RR plus important que le sympatique
+
+5- on affiche les demi-spectres des signaux filtrés sur 128 points, le resultat est cohérent puisqu'on remarque que l'amplitude max du parasympatique (~6 mV) est plus importante que celle du sympatique (~1,4 mV) mais cela reste difficile à interpretter
+
+6- on affiche la densité spectrale de puissance en prenant un nombre de bins fréquentiels égal à 128, cette fois ci le resultat est très clair, tandis que le signal parasympatique a une amplitude max importante (~4), le signal sympatique a une amplitude max de seulement (0,3)

@@ -1,0 +1,16 @@
+[Apps]
+com.discordapp.Discord
+com.raggesilver.BlackBox
+com.valvesoftware.Steam
+io.neovim.nvim
+one.ablaze.floorp
+org.mozilla.Thunderbird
+io.freetubeapp.FreeTube
+com.github.Matoking.protontricks
+org.onlyoffice.desktopeditors
+org.freedesktop.Sdk.Extension.dotnet8/x86_64/23.08
+org.godotengine.GodotSharp
+com.github.tchx84.Flatseal
+io.missioncenter.MissionCenter
+[GTK3]
+[GTK4]
