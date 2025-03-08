@@ -22,10 +22,10 @@ void loop()
   Serial.println(posVER);
   Serial.print("Appuyé : ");
   if(stateSEL == 1){
-    Serial.println("Oui");
+    Serial.println("Non");
   }
   else{
-    Serial.println("Non");
+    Serial.println("Oui");
   }
   delay(1); // delay in between reads for stability
 }
