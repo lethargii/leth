@@ -1,0 +1,14 @@
+const int testPIN = A0;
+
+void setup()
+{
+  pinMode(testPIN, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int testValue = analogRead(testPIN);
+  Serial.println(testValue);
+  delay(1); // delay in between reads for stability
+}
