@@ -1,0 +1,196 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: #68deaa;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  height: 10vh;
+  width: 10vw;
+  margin-right: 1em;
+}
+
+header h1 {
+  margin: 1em 0 1em 1em;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 2em;
+  font-style: normal;
+  text-shadow: 1px 1px 2px grey;
+}
+
+table td {
+  border: solid;
+  padding: 0.5em;
+  align-items: center;
+  object-position: center;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+table th {
+  border: solid;
+  padding: 0.5em;
+  align-items: center;
+}
+
+table th text {
+  align-self: center;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.carousel {
+  width: 1280px;
+  height: 720px;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  background-color: #241F48;
+  font-variant-caps: small-caps;
+  padding: 1.5em 0 1.5em 0;
+}
+
+nav ul {
+  margin: 0;
+  padding-left: 1em;
+  display: inline-flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+nav a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  margin: 0;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  color: lightgrey;
+}
+
+nav li {
+  margin: 0;
+  border: solid;
+  border-width: 0 0.5px 0 0.5px;
+  border-color: white;
+  padding: 0.5em 0 0.5em 0;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+#firstnav {
+  border-width: 0 0.5px 0 0;
+}
+
+#lastnav {
+  border-width: 0 0 0 0.5px;
+}
+
+nav li:hover {
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+#current {
+  background-color: #F6B300;
+}
+
+footer {
+  padding: 2em 0 2em 0;
+  color: white;
+  background-color: #F6B300;
+  flex-direction: row;
+  display: flex;
+}
+
+footer div {
+  text-align: center;
+  flex: 1 1 0;
+  margin: 0;
+}
+
+footer p {
+  display: inline;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+.statut {
+  text-align: center;
+}
+
+main {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+main h1 {
+  text-align: center;
+}
+
+input#non-tshirt:checked ~ div#acacher {
+  display: none;
+}
+
+#contact:hover {
+  color: lightgrey;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  background-color: #ff68ab;
+  padding: 4em;
+  margin: 2em;
+  border-radius: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input {
+  border-radius: 0.5em;
+  border-color: black;
+  padding: 0.3em;
+}
+
+label {
+  margin: 1em;
+}
