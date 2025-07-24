@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/opt/venvs/undervolt/bin/python /opt/venvs/undervolt/script.py

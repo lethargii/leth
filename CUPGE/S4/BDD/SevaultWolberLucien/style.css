@@ -1,0 +1,422 @@
+@font-face {
+  font-family: "FORTA";
+  src: url("Forta.ttf");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: #68deaa;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  height: 10vh;
+  width: 10vw;
+  margin-right: 1em;
+}
+
+header h1 {
+  margin: 1em 0 1em 1em;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 2em;
+  font-style: normal;
+  text-shadow: 1px 1px 2px grey;
+}
+
+table td {
+  border: solid;
+  padding: 0.5em;
+  align-items: center;
+  object-position: center;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+table th {
+  border: solid;
+  padding: 0.5em;
+  align-items: center;
+}
+
+table th text {
+  align-self: center;
+}
+
+main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  font-family: "FORTA", sans-serif;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("tdj.png");
+  background-size: cover;
+}
+
+section {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
+main h1 {
+  text-align: center;
+}
+
+.day {
+  padding-top: 7em;
+  margin-top: -6em;
+  padding-bottom: 1em;
+}
+
+#pres2025 {
+  padding-right: 20%;
+  padding-left: 20%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  color: white;
+  background-color: #00a6ae;
+}
+
+#pres2024 {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  color: #241f48;
+}
+
+#pres {
+  font-family: "FORTA", sans-serif;
+  padding: 0;
+}
+
+#festimage {
+  width: 1280px;
+}
+
+.carousel {
+  width: 1280px;
+  height: 720px;
+}
+
+nav {
+  position: sticky;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  font-variant-caps: small-caps;
+  padding: 1.5em 0 1.5em 0;
+}
+
+.navsite {
+  top: 0;
+  background-color: #241F48;
+}
+
+.navprog {
+  justify-content: space-around;
+  top: 5em;
+  background-color: #07375E;
+}
+
+nav ul {
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+nav a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  margin: 0;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  color: lightgrey;
+}
+
+nav li {
+  margin: 0;
+  border: solid;
+  border-width: 0 0.5px 0 0.5px;
+  border-color: white;
+  padding: 0.5em 0 0.5em 0;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+#firstnav {
+  border-width: 0 0.5px 0 0;
+}
+
+#lastnav {
+  border-width: 0 0 0 0.5px;
+}
+
+nav li:hover {
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+#current {
+  background-color: #F6B300;
+}
+
+#arthead {
+  background-color: #EB5846;
+  color: white;
+}
+
+#artbody {
+  background-color: #07375E;
+  color: white;
+}
+
+#arthead img {
+  border-radius: 3.5em;
+}
+
+.artist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 40%;
+  justify-content: space-between;
+}
+
+.artist img {
+  border-radius: 1em;
+  width: 8vw;
+}
+
+section iframe {
+  margin: 1em;
+}
+
+#info {
+  color: #241f48;
+}
+
+#prog {
+  color: #241f48;
+}
+
+#prog p {
+  color: #241f48;
+}
+
+#prog h5 {
+  color: #241f48;
+}
+
+#tableinfo {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 120%;
+}
+
+footer {
+  padding: 2em 0 2em 0;
+  color: white;
+  background-color: #F6B300;
+  flex-direction: row;
+  display: flex;
+}
+
+footer div {
+  text-align: center;
+  flex: 1 1 0;
+  margin: 0;
+}
+
+footer p {
+  display: inline;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+.statut {
+  text-align: center;
+}
+
+
+input#non-tshirt:checked ~ div#acacher {
+  display: none;
+}
+
+#acacher {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact:hover {
+  color: lightgrey;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+#form {
+  background-color: #ff68ab;
+  padding: 4em;
+  margin: 1em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+form h3 {
+  margin-top: 1em;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formline {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  width: 100%;
+  justify-content: center;
+}
+
+input[type='text'] {
+  border-radius: 0.5em;
+  border-color: black;
+  padding: 0.3em;
+  height: 2.2em;
+  font-family: initial;
+  flex: 1;
+}
+
+input[type='tel'] {
+  border-radius: 0.5em;
+  border-color: black;
+  padding: 0.3em;
+  height: 2.2em;
+  font-family: initial;
+  flex: 1;
+}
+
+input[type='email'] {
+  border-radius: 0.5em;
+  border-color: black;
+  padding: 0.3em;
+  height: 2.2em;
+  font-family: initial;
+  flex: 1;
+}
+
+input {
+  margin: 1.2em 0.5em 0 0.5em;
+}
+
+label {
+  margin: 1em;
+}
+
+#dimanche {
+  margin: 10em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2em;
+  padding-bottom: 1em;
+}
+
+@keyframes left {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+main h1 {
+  animation-name: left;
+  animation-duration: 1s;
+  position: relative;
+}
+
+h2 {
+  animation-name: left;
+  animation-duration: 1s;
+  position: relative;
+}
+
+h3 {
+  animation-name: left;
+  animation-duration: 1s;
+  position: relative;
+}
+
+h4 {
+  animation-name: left;
+  animation-duration: 1s;
+  position: relative;
+}
+
+#pres2025 p {
+  animation-name: right;
+  animation-duration: 1s;
+  position: relative;
+}
+
+#dimanche {
+  animation-name: right;
+  animation-duration: 1s;
+  position: relative;
+}
+
+#artbody p {
+  animation-name: right;
+  animation-duration: 1s;
+  position: relative;
+}
+
+#info p {
+  animation-name: right;
+  animation-duration: 1s;
+  position: relative;
+}
